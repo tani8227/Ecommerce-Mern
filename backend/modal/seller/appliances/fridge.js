@@ -1,0 +1,105 @@
+import mongoose, { Types } from "mongoose";
+
+const fridgeSchema= new mongoose.Schema(
+    {
+       companyName:
+       {
+        type:String,
+        required:true,
+       },
+       seller_ref:
+       {
+           type:mongoose.Schema.Types.ObjectId,
+           required:true,
+       },
+      comboId:
+       {
+           type:String,
+           required:true,
+       },
+
+       imgUrl:
+       [
+           {
+            type:String,
+            required:true,
+           }
+       ],
+       price:
+       {
+         type:Number,
+         required:true,
+       },
+       type:
+       {
+          type:String,
+          required:true,
+       },
+       refrigeratorType:
+       {
+        type:String,
+        required:true,
+       },
+       color:
+       {
+        type:String,
+        required:true,
+       },
+       numberOfDoor:
+       {
+        type:Number,
+        required:true,
+       },
+       defrostingType:
+       {
+        type:String,
+        required:true,
+       },
+       compressorType:
+       {
+        type:String,
+        required:true,
+       },
+       handleMaterial:
+       {
+         type:String,
+         required:true,
+       },
+       shelfMaterial:
+       {
+         type:String,
+         required:true,
+       },
+       capacity:
+       {
+        type:String,
+        required:true,
+       },
+       starRating:
+       {
+        type:String,
+        required:true,
+       },
+       launchYear:
+       {
+        type:String,
+        required:true,
+       },
+       warranty:
+       {
+        type:String,
+        required:true,
+       },
+       quantity:
+       {
+        type:Number,
+        required:true,
+       }
+       
+    },
+    {timestamps:true}
+)
+
+const Fridge= mongoose.model('Fridge', fridgeSchema);
+
+export default Fridge;

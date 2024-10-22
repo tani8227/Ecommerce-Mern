@@ -1,0 +1,94 @@
+import mongoose from "mongoose";
+
+const printerSchema=new mongoose.Schema(
+    {
+        companyName:
+        {
+            type:String,
+            required:true,
+        },
+        seller_ref:
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'User'
+        },
+        comboId:
+        {
+            type:String,
+            required:true,
+        },
+        imgUrl:
+        [
+            {
+                type:String,
+                required:true,
+            },
+        ],
+        price:
+        {
+            type:Number,
+            required:true,
+        },
+        modelName:
+        {
+            type:String,
+            required:true,
+        },
+        type:
+        {
+            type:String,
+            required:true,
+        },
+        printingMethod:
+        {
+            type:String,
+            required:true,
+        },
+        functions:
+        {
+            type:String,
+            required:true,
+        },
+        printingOutput:
+        {
+            type:String,
+            required:true,
+        },
+        
+        refillType:
+        {
+            type:String,
+            required:true,
+        },
+        wirelessSupport:
+        {
+            type:String,
+            required:true,
+        },
+        usbSupport:
+        {
+            type:String,
+            required:true,
+        }, 
+        voiceAssistantCompatibility:
+        {
+            type:String,
+            
+        }, 
+        salesBox:
+        {
+            type:String,
+            required:true,
+        }, 
+        quantity:
+        {
+            type:Number,
+            required:true,
+        } 
+    },
+    {
+        timestamps:true,
+    })
+
+    const Printer= mongoose.model('Printer', printerSchema);
+    export default Printer;
