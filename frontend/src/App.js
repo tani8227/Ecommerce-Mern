@@ -5,7 +5,7 @@
 import Home from "./pages/Home";
 // import Titlebar from "./Component/TitbleBar";
 // import Grocery from "./pages/Grocery.js";
-import Fashion from "./pages/Fashion.js";
+// import Fashion from "./pages/Fashion.js";
 // import Electronics from "./pages/Electronics";
 // import Mobile from "./pages/Mobile.js";
 // import Appliances from "./pages/Appliances.js";
