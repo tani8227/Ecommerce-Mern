@@ -50,8 +50,8 @@ export default function Home() {
     // }, [fashiondata]);
 
 
-    console.log(AllMobileCompanies)
-    console.log(AllFashionCompanies)
+    // console.log(AllMobileCompanies)
+    // console.log(AllFashionCompanies)
  
     return (
         <Box>
