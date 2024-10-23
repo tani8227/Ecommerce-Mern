@@ -1084,8 +1084,8 @@ export default function App() {
   return (
     <>
       <Provider store={store}>
-        <AuthLoader />
-        <ToastContainer />
+        {/* <AuthLoader /> */}
+        {/* <ToastContainer /> */}
         <RouterProvider router={router} />
 
       </Provider>
