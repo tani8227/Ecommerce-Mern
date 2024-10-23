@@ -1,7 +1,7 @@
-import { createBrowserRouter,  RouterProvider } from "react-router-dom";
+// import { createBrowserRouter,  RouterProvider } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 // import { Card, Grid, CardMedia } from "@mui/material";
-import Navbar from "./Component/Navbar.js"
+// import Navbar from "./Component/Navbar.js"
 import Home from "./pages/Home";
 // import Titlebar from "./Component/TitbleBar";
 // import Grocery from "./pages/Grocery.js";
@@ -10,8 +10,8 @@ import Fashion from "./pages/Fashion.js";
 // import Mobile from "./pages/Mobile.js";
 // import Appliances from "./pages/Appliances.js";
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 // import { SignUpComponent } from './Component/buyer/SignUpComponent.js'
 // import { SignInComponent } from "./Component/buyer/SignInComponent.js"
@@ -69,9 +69,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // import SearchResultComponent from './Component/SearchResultComponent.js'
 
-import { Provider } from "react-redux";
-import { store } from "./Store.js";
-import AuthLoader from "./AuthLoader.js";
+// import { Provider } from "react-redux";
+// import { store } from "./Store.js";
+// import AuthLoader from "./AuthLoader.js";
 // import AddShampoo from "./Component/seller/grocery/shampoo/AddShampoo.js";
 // import MyOrderDeatilsComponent from './Component/orders/MyOrderDetailsComponent.js'
 // import { useSearchParams } from 'react-router-dom';
@@ -694,403 +694,425 @@ import AuthLoader from "./AuthLoader.js";
 
 
 
-export default function App() {
+// export default function App() {
 
 
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     children: [
-  //       {
+//   // const router = createBrowserRouter([
+//   //   {
+//   //     path: "/",
+//   //     children: [
+//   //       {
 
-  //         element: <Navbar />,
-  //         children:
-  //           [
-  //             {
-  //               index: true,
-  //               element: <Home />,
-  //             },
+//   //         element: <Navbar />,
+//   //         children:
+//   //           [
+//   //             {
+//   //               index: true,
+//   //               element: <Home />,
+//   //             },
 
-  //             {
-  //               path: "buyer",
+//   //             {
+//   //               path: "buyer",
 
-  //               children:
-  //                 [
-  //                   {
-  //                     path: ":item",
-  //                     element: <BuyerWrapper />
-  //                   },
-
-
-  //                 ],
-  //             },
-  //             {
-  //               path: "Product",
-  //               children: [
-
-  //                 {
-  //                   path: 'preview',
-  //                   element: <OrderWrapper />
-  //                 }
-  //               ]
-  //             },
-
-  //             {
-  //               // path: "/",
-  //               element: <Titlebar />,
-  //               children: [
-  //                 {
-  //                   path: "Grocery",
-  //                   children:
-  //                     [
-  //                       {
-  //                         index: true,
-  //                         element: <Grocery productCategory={'Grocery'} />,
-  //                       },
-  //                       {
-  //                         path: ":Item",
-  //                         children:
-  //                           [
-  //                             {
-  //                               index: true,
-  //                               element: <GroceryItemComponent />
-  //                             },
-  //                             {
-
-  //                               path: ":id",
-  //                               element: <GroceryProductItemCompenont />
-  //                             },
-  //                             {
-  //                               path: `:ItemDetails`,
-  //                               children: [
-  //                                 {
-
-  //                                   path: ":companyName",
-  //                                   element: <GroceryItemListComponent />
-  //                                 }
-  //                               ]
-  //                             }
-  //                           ]
-  //                       },
-
-  //                     ]
-
-  //                 },
-  //                 {
-  //                   path: "Mobile",
-  //                   children:
-  //                     [
-  //                       {
-  //                         index: true,
-  //                         element: <Mobile productCategory={'Mobile'} />,
-
-  //                       },
-  //                       {
-  //                         path: ":id",
-  //                         element: <MobileItemComponent ProductCategory={'Mobile'} />
-  //                       },
-  //                       {
-  //                         path: "MobileDetails",
-  //                         children:
-  //                           [
-  //                             {
-
-  //                               path: ":companyName",
-  //                               element: <MobileListComponent ProductCategory={'Mobile'} />
-  //                             }
-  //                           ],
-  //                       },
-  //                     ]
-  //                 },
-  //                 {
-  //                   path: "Fashion",
-  //                   children:
-  //                     [
-  //                       {
-  //                         index: true,
-  //                         element: <Fashion productCategory={'Fashion'} />,
-
-  //                       },
-  //                       {
-  //                         path: ":Item",
-  //                         children:
-  //                           [
-  //                             {
-  //                               index: true,
-  //                               element: <FashionItemComponent />
-  //                             },
-  //                             {
-  //                               path: ":id",
-  //                               element: <FashionProductItemCompenont />
-  //                             },
-  //                             {
-  //                               path: `:ItemDetails`,
-  //                               children:
-  //                                 [
-  //                                   {
-
-  //                                     path: ":companyName",
-  //                                     element: <FashionItemListComponent />
-  //                                   },
-  //                                 ]
-  //                             }
-  //                           ]
-  //                       },
-  //                     ]
-  //                 },
-
-  //                 {
-  //                   path: "Electronics",
-  //                   children:
-  //                     [
-  //                       {
-  //                         index: true,
-  //                         element: <Electronics productCategory={'Electronics'} />,
-  //                       },
-  //                       {
+//   //               children:
+//   //                 [
+//   //                   {
+//   //                     path: ":item",
+//   //                     element: <BuyerWrapper />
+//   //                   },
 
 
-  //                         path: ":Item",
-  //                         children:
-  //                           [
-  //                             {
-  //                               index: true,
-  //                               element: <ElectronicsItemComponent />
-  //                             },
-  //                             {
-  //                               path: ":id",
-  //                               element: <ElectronicsProductItemCompenont />
-  //                             },
-  //                             {
-  //                               path: `:ItemDetails`,
-  //                               children:
-  //                                 [
-  //                                   {
+//   //                 ],
+//   //             },
+//   //             {
+//   //               path: "Product",
+//   //               children: [
 
-  //                                     path: ":companyName",
-  //                                     element: <ElectronicsItemListComponent />
-  //                                   },
-  //                                 ]
-  //                             }
-  //                           ]
-  //                       },
-  //                     ]
-  //                 },
+//   //                 {
+//   //                   path: 'preview',
+//   //                   element: <OrderWrapper />
+//   //                 }
+//   //               ]
+//   //             },
 
-  //                 {
-  //                   path: "Appliances",
+//   //             {
+//   //               // path: "/",
+//   //               element: <Titlebar />,
+//   //               children: [
+//   //                 {
+//   //                   path: "Grocery",
+//   //                   children:
+//   //                     [
+//   //                       {
+//   //                         index: true,
+//   //                         element: <Grocery productCategory={'Grocery'} />,
+//   //                       },
+//   //                       {
+//   //                         path: ":Item",
+//   //                         children:
+//   //                           [
+//   //                             {
+//   //                               index: true,
+//   //                               element: <GroceryItemComponent />
+//   //                             },
+//   //                             {
 
-  //                   children:
-  //                     [
-  //                       {
-  //                         index: true,
-  //                         element: <Appliances productCategory={'Appliances'} />,
-  //                       },
-  //                       {
+//   //                               path: ":id",
+//   //                               element: <GroceryProductItemCompenont />
+//   //                             },
+//   //                             {
+//   //                               path: `:ItemDetails`,
+//   //                               children: [
+//   //                                 {
 
+//   //                                   path: ":companyName",
+//   //                                   element: <GroceryItemListComponent />
+//   //                                 }
+//   //                               ]
+//   //                             }
+//   //                           ]
+//   //                       },
 
-  //                         path: ":Item",
-  //                         children:
-  //                           [
-  //                             {
-  //                               index: true,
-  //                               element: <AppliancesItemComponent />
-  //                             },
-  //                             {
-  //                               path: ":id",
-  //                               element: <AppliancesProductItemCompenont />
-  //                             },
-  //                             {
-  //                               path: `:ItemDetails`,
-  //                               children:
-  //                                 [
-  //                                   {
+//   //                     ]
 
-  //                                     path: ":companyName",
-  //                                     element: <AppliancesItemListComponent />
-  //                                   },
-  //                                 ]
-  //                             }
-  //                           ]
-  //                       },
-  //                     ]
-  //                 },
-  //                 {
-  //                   path: "searchResult",
+//   //                 },
+//   //                 {
+//   //                   path: "Mobile",
+//   //                   children:
+//   //                     [
+//   //                       {
+//   //                         index: true,
+//   //                         element: <Mobile productCategory={'Mobile'} />,
 
-  //                   element: <SearchResultComponentWrapper />,
+//   //                       },
+//   //                       {
+//   //                         path: ":id",
+//   //                         element: <MobileItemComponent ProductCategory={'Mobile'} />
+//   //                       },
+//   //                       {
+//   //                         path: "MobileDetails",
+//   //                         children:
+//   //                           [
+//   //                             {
 
-  //                 },
+//   //                               path: ":companyName",
+//   //                               element: <MobileListComponent ProductCategory={'Mobile'} />
+//   //                             }
+//   //                           ],
+//   //                       },
+//   //                     ]
+//   //                 },
+//   //                 {
+//   //                   path: "Fashion",
+//   //                   children:
+//   //                     [
+//   //                       {
+//   //                         index: true,
+//   //                         element: <Fashion productCategory={'Fashion'} />,
 
+//   //                       },
+//   //                       {
+//   //                         path: ":Item",
+//   //                         children:
+//   //                           [
+//   //                             {
+//   //                               index: true,
+//   //                               element: <FashionItemComponent />
+//   //                             },
+//   //                             {
+//   //                               path: ":id",
+//   //                               element: <FashionProductItemCompenont />
+//   //                             },
+//   //                             {
+//   //                               path: `:ItemDetails`,
+//   //                               children:
+//   //                                 [
+//   //                                   {
 
+//   //                                     path: ":companyName",
+//   //                                     element: <FashionItemListComponent />
+//   //                                   },
+//   //                                 ]
+//   //                             }
+//   //                           ]
+//   //                       },
+//   //                     ]
+//   //                 },
 
-  //               ],
-  //             },
-  //           ]
-
-  //       },
-
-  //       {
-  //         path: "seller",
-  //         element: <SellersNavbar />,
-  //         children:
-  //           [
-  //             {
-  //               path: "dashboard",
-  //               element: <SellersDashBoard />
-  //             },
-  //             {
-  //               path: "signup",
-  //               element: <SellerSignUpComponent />
-  //             },
-  //             {
-  //               path: "signin",
-  //               element: <SellerSignInComponent />
-  //             },
-  //             {
-  //               path: "productManagement",
-  //               children: [
-
-  //                 {
-
-  //                   index: true,
-  //                   element: <ProductManagement />,
-
-  //                 },
-  //                 {
-  //                   path: "updateProduct",
-  //                   children:
-  //                     [
-  //                       {
-  //                         path: ':item',
-  //                         element: <ProductUpdateComponentWrapper />,
-
-  //                       }
-  //                     ]
-
-  //                 },
-  //                 {
-
-  //                   path: ':item',
-  //                   element: <ProductManagementWrapper />,
-
-  //                 },
-
-  //               ]
-
-  //             },
-  //             {
-  //               path: "catergory",
-  //               element: <ProductCategory />
-  //             },
-  //             {
-  //               path: "addmobile",
-  //               element: <AddMobile />
-  //             },
-  //             {
-  //               path: "addtshirt",
-  //               element: <AddTShirt />
-  //             },
-  //             {
-  //               path: "addshirt",
-  //               element: <AddShirt />
-  //             },
-  //             {
-  //               path: "addshoe",
-  //               element: <AddShoe />
-  //             },
-  //             {
-  //               path: "addlaptop",
-  //               element: <AddLaptop />
-  //             },
-  //             {
-  //               path: "addfridge",
-  //               element: <AddFridge />
-  //             },
-  //             {
-  //               path: "addflour",
-  //               element: <AddFlour />
-  //             },
-  //             {
-  //               path: "addledTV",
-  //               element: <AddLedTV />
-  //             },
-  //             {
-  //               path: "addwashingMachine",
-  //               element: <AddWashingMachine />
-  //             },
-  //             {
-  //               path: "addprinter",
-  //               element: <AddPrinter />
-  //             },
-  //             {
-  //               path: "addcamera",
-  //               element: <AddCamera />
-  //             },
-  //             {
-  //               path: "addcooler",
-  //               element: <AddCooler />
-  //             },
-  //             {
-  //               path: "addjeans",
-  //               element: <AddJeans />
-  //             },
-  //             {
-  //               path: "addtrackPant",
-  //               element: <AddTrackPant />
-  //             },
-  //             {
-  //               path: "adddetergent",
-  //               element: <AddDetergent />
-  //             },
-  //             {
-  //               path: "addcleaningEssentials",
-  //               element: <AddCleaningEssentials />
-  //             },
-  //             {
-  //               path: "addoralCare",
-  //               element: <AddOralCare />
-  //             },
-  //             {
-  //               path: "addshampoo",
-  //               element: <AddShampoo />
-  //             },
-
-  //           ],
-  //       },
-  //     ],
-  //   },
-  // ]);
+//   //                 {
+//   //                   path: "Electronics",
+//   //                   children:
+//   //                     [
+//   //                       {
+//   //                         index: true,
+//   //                         element: <Electronics productCategory={'Electronics'} />,
+//   //                       },
+//   //                       {
 
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Navbar />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "Fashion",
-          element: <Fashion productCategory={'Fashion'} />,
-        },
-        // Add more simplified routes as needed
-      ],
-    },
-  ]);
+//   //                         path: ":Item",
+//   //                         children:
+//   //                           [
+//   //                             {
+//   //                               index: true,
+//   //                               element: <ElectronicsItemComponent />
+//   //                             },
+//   //                             {
+//   //                               path: ":id",
+//   //                               element: <ElectronicsProductItemCompenont />
+//   //                             },
+//   //                             {
+//   //                               path: `:ItemDetails`,
+//   //                               children:
+//   //                                 [
+//   //                                   {
+
+//   //                                     path: ":companyName",
+//   //                                     element: <ElectronicsItemListComponent />
+//   //                                   },
+//   //                                 ]
+//   //                             }
+//   //                           ]
+//   //                       },
+//   //                     ]
+//   //                 },
+
+//   //                 {
+//   //                   path: "Appliances",
+
+//   //                   children:
+//   //                     [
+//   //                       {
+//   //                         index: true,
+//   //                         element: <Appliances productCategory={'Appliances'} />,
+//   //                       },
+//   //                       {
+
+
+//   //                         path: ":Item",
+//   //                         children:
+//   //                           [
+//   //                             {
+//   //                               index: true,
+//   //                               element: <AppliancesItemComponent />
+//   //                             },
+//   //                             {
+//   //                               path: ":id",
+//   //                               element: <AppliancesProductItemCompenont />
+//   //                             },
+//   //                             {
+//   //                               path: `:ItemDetails`,
+//   //                               children:
+//   //                                 [
+//   //                                   {
+
+//   //                                     path: ":companyName",
+//   //                                     element: <AppliancesItemListComponent />
+//   //                                   },
+//   //                                 ]
+//   //                             }
+//   //                           ]
+//   //                       },
+//   //                     ]
+//   //                 },
+//   //                 {
+//   //                   path: "searchResult",
+
+//   //                   element: <SearchResultComponentWrapper />,
+
+//   //                 },
+
+
+
+//   //               ],
+//   //             },
+//   //           ]
+
+//   //       },
+
+//   //       {
+//   //         path: "seller",
+//   //         element: <SellersNavbar />,
+//   //         children:
+//   //           [
+//   //             {
+//   //               path: "dashboard",
+//   //               element: <SellersDashBoard />
+//   //             },
+//   //             {
+//   //               path: "signup",
+//   //               element: <SellerSignUpComponent />
+//   //             },
+//   //             {
+//   //               path: "signin",
+//   //               element: <SellerSignInComponent />
+//   //             },
+//   //             {
+//   //               path: "productManagement",
+//   //               children: [
+
+//   //                 {
+
+//   //                   index: true,
+//   //                   element: <ProductManagement />,
+
+//   //                 },
+//   //                 {
+//   //                   path: "updateProduct",
+//   //                   children:
+//   //                     [
+//   //                       {
+//   //                         path: ':item',
+//   //                         element: <ProductUpdateComponentWrapper />,
+
+//   //                       }
+//   //                     ]
+
+//   //                 },
+//   //                 {
+
+//   //                   path: ':item',
+//   //                   element: <ProductManagementWrapper />,
+
+//   //                 },
+
+//   //               ]
+
+//   //             },
+//   //             {
+//   //               path: "catergory",
+//   //               element: <ProductCategory />
+//   //             },
+//   //             {
+//   //               path: "addmobile",
+//   //               element: <AddMobile />
+//   //             },
+//   //             {
+//   //               path: "addtshirt",
+//   //               element: <AddTShirt />
+//   //             },
+//   //             {
+//   //               path: "addshirt",
+//   //               element: <AddShirt />
+//   //             },
+//   //             {
+//   //               path: "addshoe",
+//   //               element: <AddShoe />
+//   //             },
+//   //             {
+//   //               path: "addlaptop",
+//   //               element: <AddLaptop />
+//   //             },
+//   //             {
+//   //               path: "addfridge",
+//   //               element: <AddFridge />
+//   //             },
+//   //             {
+//   //               path: "addflour",
+//   //               element: <AddFlour />
+//   //             },
+//   //             {
+//   //               path: "addledTV",
+//   //               element: <AddLedTV />
+//   //             },
+//   //             {
+//   //               path: "addwashingMachine",
+//   //               element: <AddWashingMachine />
+//   //             },
+//   //             {
+//   //               path: "addprinter",
+//   //               element: <AddPrinter />
+//   //             },
+//   //             {
+//   //               path: "addcamera",
+//   //               element: <AddCamera />
+//   //             },
+//   //             {
+//   //               path: "addcooler",
+//   //               element: <AddCooler />
+//   //             },
+//   //             {
+//   //               path: "addjeans",
+//   //               element: <AddJeans />
+//   //             },
+//   //             {
+//   //               path: "addtrackPant",
+//   //               element: <AddTrackPant />
+//   //             },
+//   //             {
+//   //               path: "adddetergent",
+//   //               element: <AddDetergent />
+//   //             },
+//   //             {
+//   //               path: "addcleaningEssentials",
+//   //               element: <AddCleaningEssentials />
+//   //             },
+//   //             {
+//   //               path: "addoralCare",
+//   //               element: <AddOralCare />
+//   //             },
+//   //             {
+//   //               path: "addshampoo",
+//   //               element: <AddShampoo />
+//   //             },
+
+//   //           ],
+//   //       },
+//   //     ],
+//   //   },
+//   // ]);
+
+
+//   const router = createBrowserRouter([
+//     {
+//       path: "/",
+//       element: <Navbar />,
+//       children: [
+//         {
+//           index: true,
+//           element: <Home />,
+//         },
+//         {
+//           path: "Fashion",
+//           element: <Fashion productCategory={'Fashion'} />,
+//         },
+//         // Add more simplified routes as needed
+//       ],
+//     },
+//   ]);
   
-  return (
-    <>
-      <Provider store={store}>
-        <AuthLoader />
-        <ToastContainer />
-        <RouterProvider router={router} />
+//   return (
+//     <>
+//       <Provider store={store}>
+//         <AuthLoader />
+//         <ToastContainer />
+//         <RouterProvider router={router} />
 
-      </Provider>
-    </>
+//       </Provider>
+//     </>
+//   );
+// }
+
+
+
+
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Fashion from './Fashion'; // Import your Fashion component
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/Fashion" component={Fashion} />
+        {/* Other routes */}
+      </Switch>
+    </Router>
   );
 }
+
+export default App;
+
 
 
