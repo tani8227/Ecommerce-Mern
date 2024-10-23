@@ -1105,7 +1105,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Fashion" element={<Fashion />} />
+        <Route path="/Fashion" element={<Fashion productCategory={'Fashion'}/>} />
         {/* Add other routes here */}
       </Routes>
     </Router>
