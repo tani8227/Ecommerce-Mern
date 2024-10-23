@@ -1,6 +1,12 @@
 import express from "express";
 import cors from "cors";
 import dotenv from 'dotenv';
+import path from 'path'; // Import path
+import db from './config/mongoose.js';
+import routes from "./routes/index.js";
+import bodyParser from "body-parser";
+import passport from "passport";
+import JWTStrategy from './config/passport-jwt-strategy.js';
 
 dotenv.config(); 
 const port = process.env.PORT || 8000; // Use PORT from .env or default to 8000
@@ -8,12 +14,11 @@ const app = express();
 
 // CORS setup
 app.use(cors({
-    origin: [process.env.REACT_APP_REQUEST_ORIGIN_URL, ], // Add both localhost and production frontend domains
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-    credentials: true // Include credentials if needed
+    origin: [process.env.REACT_APP_REQUEST_ORIGIN_URL],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
-
 
 // Log incoming requests and preflight requests
 app.use((req, res, next) => {
@@ -22,19 +27,25 @@ app.use((req, res, next) => {
 });
 
 // Handle preflight requests for all routes
-app.options('*', cors()); // This allows preflight requests for all routes
+app.options('*', cors());
 
-import db from './config/mongoose.js';
-import routes from "./routes/index.js";
-import bodyParser from "body-parser";
-import passport from "passport";
-import JWTStrategy from './config/passport-jwt-strategy.js';
-
+// Body Parser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Define your routes
 app.use('/', routes);
 
+// Fallback route for React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+// Start the server
 app.listen(port, (err) => {
     if (err) {
         console.log("Error in running the server");
