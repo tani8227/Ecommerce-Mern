@@ -1097,20 +1097,24 @@ import Fashion from "./pages/Fashion.js";
 
 
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-//
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MainFashion from './MainFashion'; // Adjust the path as necessary
+// Import other components...
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/Fashion" component={Fashion} />
-        {/* Other routes */}
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Fashion" element={<Fashion />} />
+        {/* Add other routes here */}
+      </Routes>
     </Router>
   );
 }
+
+
+
 
 export default App;
 
