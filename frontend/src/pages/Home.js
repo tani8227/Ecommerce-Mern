@@ -15,8 +15,8 @@ import Carousel from '../Component/CarouselComponent.js';
 
 
 
-// import useToGetHomeMobileData from '../Component/utility/useToGetHomeMobileData.js';
-// import useToGetHomeFashionData from '../Component/utility/useToGetHomeFashionData.js';
+import useToGetHomeMobileData from '../Component/utility/useToGetHomeMobileData.js';
+import useToGetHomeFashionData from '../Component/utility/useToGetHomeFashionData.js';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -29,29 +29,29 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Home() {
 
 
-    // const [AllMobileCompanies, setAllMobileCompanies] = useState();
-    // const [AllFashionCompanies, setAllFashionCompanies] = useState();
+    const [AllMobileCompanies, setAllMobileCompanies] = useState();
+    const [AllFashionCompanies, setAllFashionCompanies] = useState();
 
 
-    // const mobiledata = useToGetHomeMobileData();
-    // const fashiondata = useToGetHomeFashionData();
+    const mobiledata = useToGetHomeMobileData();
+    const fashiondata = useToGetHomeFashionData();
 
 
-    // useEffect(() => {
-    //     if (mobiledata) {
-    //         setAllMobileCompanies(mobiledata);
-    //     }
-    // }, [mobiledata]);
+    useEffect(() => {
+        if (mobiledata) {
+            setAllMobileCompanies(mobiledata);
+        }
+    }, [mobiledata]);
 
-    // useEffect(() => {
-    //     if (fashiondata) {
-    //         setAllFashionCompanies(fashiondata);
-    //     }
-    // }, [fashiondata]);
+    useEffect(() => {
+        if (fashiondata) {
+            setAllFashionCompanies(fashiondata);
+        }
+    }, [fashiondata]);
 
 
-    // console.log(AllMobileCompanies)
-    // console.log(AllFashionCompanies)
+    console.log(AllMobileCompanies)
+    console.log(AllFashionCompanies)
  
     return (
         <Box>
