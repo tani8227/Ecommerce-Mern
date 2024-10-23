@@ -5,7 +5,7 @@
 import Home from "./pages/Home";
 // import Titlebar from "./Component/TitbleBar";
 // import Grocery from "./pages/Grocery.js";
-// import Fashion from "./pages/Fashion.js";
+import Fashion from "./pages/Fashion.js";
 // import Electronics from "./pages/Electronics";
 // import Mobile from "./pages/Mobile.js";
 // import Appliances from "./pages/Appliances.js";
@@ -1098,7 +1098,7 @@ import Home from "./pages/Home";
 
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Fashion from './Fashion'; // Import your Fashion component
+//
 
 function App() {
   return (
