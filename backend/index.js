@@ -1,33 +1,43 @@
 import express from "express";
-import path from 'path';
-import cors from "cors"
+import cors from "cors";
 import dotenv from 'dotenv';
+
 dotenv.config(); 
-const port = process.env.PORT;
+const port = process.env.PORT || 8000; // Use PORT from .env or default to 8000
 const app = express();
 
-import cloudinary from './middleWare/cloudnary.js';
+// CORS setup
+app.use(cors({
+    origin: [process.env.REACT_APP_REQUEST_ORIGIN_URL, ], // Add both localhost and production frontend domains
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true // Include credentials if needed
+}));
 
-app.use(cors(
-    {
-        origin: process.env.REACT_APP_REQUEST_ORIGIN_URL,
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    }));
+
+// Log incoming requests and preflight requests
+app.use((req, res, next) => {
+    console.log(`Received ${req.method} request for ${req.url}`);
+    next();
+});
+
+// Handle preflight requests for all routes
+app.options('*', cors()); // This allows preflight requests for all routes
 
 import db from './config/mongoose.js';
 import routes from "./routes/index.js";
 import bodyParser from "body-parser";
 import passport from "passport";
-import JWTStrategy from './config/passport-jwt-strategy.js'
+import JWTStrategy from './config/passport-jwt-strategy.js';
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use('/', routes);
 
 app.listen(port, (err) => {
     if (err) {
-        console.log("error in running the server");
+        console.log("Error in running the server");
     }
-    console.log("server is running on port :", port);
-})
+    console.log("Server is running on port:", port);
+});
