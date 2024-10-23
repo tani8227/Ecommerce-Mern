@@ -1098,7 +1098,6 @@ import Fashion from "./pages/Fashion.js";
 
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MainFashion from './MainFashion'; // Adjust the path as necessary
 // Import other components...
 
 function App() {
