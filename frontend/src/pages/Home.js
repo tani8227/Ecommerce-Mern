@@ -123,7 +123,7 @@ export default function Home() {
                     </Grid>
                 </Grid>
             </Box>
-            {/* <Box sx={{ padding: { sm: 2 }, flexGrow: 1, backgroundColor: { xs: 'white', sm: "#f1f2f4" } }}>
+            <Box sx={{ padding: { sm: 2 }, flexGrow: 1, backgroundColor: { xs: 'white', sm: "#f1f2f4" } }}>
                 <Grid container spacing={0} sx={{ display: 'flex', flexDirection: "column", flexWrap: 'nowrap', alignItems: { xs: 'flex-start', sm: 'space-evenly' },  backgroundColor: 'white' }}>
                     <Grid item xs={12} sx={{ display: "flex", flexDirection: 'row', justifyContent: "flex-start", width: "100%", borderBottom: "1px solid lightgrey" }}>
                         <Item square elevation={0} sx={{ display: "flex", justifyContent: "flex-start", }}>
@@ -198,7 +198,7 @@ export default function Home() {
                         })}
                     </Grid>
                 </Grid>
-            </Box> */}
+            </Box> 
 
 
 
