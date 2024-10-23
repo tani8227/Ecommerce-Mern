@@ -17,8 +17,12 @@ export default function useToGetHomeMobileData() {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log(result, "Fetched data successfully");
-                setData(result.data); 
+                if(result)
+                    {
+                        setData(result.data); 
+                        console.log(result, "Fetched data successfully");
+
+                    }
             } else {
                 throw new Error('Failed to fetch data');
             }
