@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 // import Grocery from "./pages/Grocery.js";
 import Fashion from "./pages/Fashion.js";
 // import Electronics from "./pages/Electronics";
-// import Mobile from "./pages/Mobile.js";
+import Mobile from "./pages/Mobile.js";
 // import Appliances from "./pages/Appliances.js";
 
 // import { ToastContainer } from 'react-toastify';
@@ -1106,6 +1106,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Fashion" element={<Fashion productCategory={'Fashion'}/>} />
+        <Route path="/Mobile" element={<Mobile productCategory={'Mobile'} />} />
+        
         {/* Add other routes here */}
       </Routes>
     </Router>
