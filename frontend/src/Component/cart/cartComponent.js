@@ -203,6 +203,7 @@ export default function CartComponent() {
             <Grid container sx={{ xs: { display: 'flex', flexWrap: "wrap" }, justifyContent: "center", }} >
 
             {cartItemData && cartItemData.cartItemList&&cartItemData.cartItemList.length==0&&
+              <Grid item xs={10} sm={2} padding={0} sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: { xs: "center", md: "space-between" }, alignItems: { xs: "center" }, }}>
               <Item square elevation={0} sx={{display: 'flex',width: '150px',justifyContent: 'center',alignItems: 'center',gap: 1,}}
             >
               <Typography
@@ -212,7 +213,7 @@ export default function CartComponent() {
                 NO PRODUCT TO SHOW
               </Typography>
             </Item>
-            
+            </Grid>
             }
                 {cartItemData && cartItemData.cartItemList&& cartItemData.cartItemList.map((ele, index) => (
 
