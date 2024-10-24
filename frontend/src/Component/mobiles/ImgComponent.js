@@ -48,6 +48,7 @@ console.log(mobileData);
     return (
         
         <ThemeProvider theme={theme}>
+            {mobileData&&mobileData.length>0&&mobileData.slice(0, 4).map((ele, index) =>(
             <Box padding={0} width={"100%"}>
                 <Grid
                     container
@@ -60,7 +61,6 @@ console.log(mobileData);
                         sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}
                     >
 
-                          {mobileData&& mobileData.slice(0, 4).map((ele, index) => (
                             <Item
                                 key={ele._id}
                                 square
@@ -97,10 +97,10 @@ console.log(mobileData);
                                     </Card>
                                 </Link>
                             </Item>
-                         ))} 
                     </Grid>
                 </Grid>
             </Box>
+        ))} 
         </ThemeProvider>
 
     );
