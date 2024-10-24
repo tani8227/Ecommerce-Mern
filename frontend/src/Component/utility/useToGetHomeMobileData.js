@@ -7,7 +7,7 @@ export default function useToGetHomeMobileData() {
     const getAllMobileItems = async () => {
         try {
             console.log("Fetching data from API...");
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/home/getAllMobile`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/home/getAllMobile`, {
                 method: "GET",
                 headers: {
                     'Content-Type': "application/json",  

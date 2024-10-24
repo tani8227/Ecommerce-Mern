@@ -13,7 +13,7 @@ const app = express();
 
 // CORS setup
 app.use(cors({
-    origin: [process.env.REACT_APP_REQUEST_ORIGIN_URL, ], // Add both localhost and production frontend domains
+    origin: [process.env.REACT_APP_REQUEST_ORIGIN_URL,process.env.REACT_APP_REQUEST_ORIGIN_LOCAL_URL ], // Add both localhost and production frontend domains
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true // Include credentials if needed
