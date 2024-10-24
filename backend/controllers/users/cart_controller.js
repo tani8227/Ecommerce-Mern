@@ -88,17 +88,18 @@ export const CartItemList = async (req, res) => {
     try {
 
         const AllcartItems = await Cart.find({ user_ref: req.user.id });
-        if (AllcartItems.length == 0) {
-            console.log("jjjjj", AllcartItems);
+        // if (AllcartItems.length == 0) {
+        //     console.log("jjjjj", AllcartItems);
 
-            return res.status(404).json({
-                message: "No items in the cart",
-                data: AllcartItems,
-            });
-        }
-        else {
+        //     return res.status(200).json({
+        //         message: "No items in the cart",
+        //         data: AllcartItems,
+        //     });
+        // }
+        // else {
             const cartItemList = [];
-            for (let cartItem of AllcartItems) {
+            for (let cartItem of AllcartItems)
+                 {
                 let mainCategory ;
                 if (cartItem.modalName === 'Mobile') {
 
@@ -137,7 +138,7 @@ export const CartItemList = async (req, res) => {
                 }
 
             });
-        }
+        // }
 
     } catch (error) {
         return res.status(500).json({

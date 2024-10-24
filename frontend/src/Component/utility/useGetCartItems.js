@@ -18,6 +18,7 @@ export const useGetCartItems = (refreshCart) => {
 
                 if (response.ok) {
                     const data = await response.json();
+                    
                     if(data)
                         {
 
