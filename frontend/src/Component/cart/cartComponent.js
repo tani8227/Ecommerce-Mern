@@ -203,11 +203,15 @@ export default function CartComponent() {
             <Grid container sx={{ xs: { display: 'flex', flexWrap: "wrap" }, justifyContent: "center", }} >
 
             {cartItemData && cartItemData.cartItemList&&cartItemData.cartItemList.length==0&&
-             <Item square elevation={0} sx={{ display: "flex", width: "150px", justifyContent: "center", alignItems: "center", gap: 1 }} >
-             <Typography variant='body2' sx={{ color: "black", fontSize: "21px", border: "2px solid lightgery" }}>
+              <Item square elevation={0} sx={{display: 'flex',width: '150px',justifyContent: 'center',alignItems: 'center',gap: 1,}}
+            >
+              <Typography
+                variant="body2"
+                sx={{ color: 'black', fontSize: '21px', border: '2px solid lightgrey' }}
+              >
                 NO PRODUCT TO SHOW
-             </Typography>
-         </Item>
+              </Typography>
+            </Item>
             
             }
                 {cartItemData && cartItemData.cartItemList&& cartItemData.cartItemList.map((ele, index) => (
