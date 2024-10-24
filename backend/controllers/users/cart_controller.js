@@ -88,6 +88,7 @@ export const CartItemList = async (req, res) => {
     try {
 
         const AllcartItems = await Cart.find({ user_ref: req.user.id });
+        //  some logic correction 
         // if (AllcartItems.length == 0) {
         //     console.log("jjjjj", AllcartItems);
 

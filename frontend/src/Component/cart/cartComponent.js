@@ -194,14 +194,23 @@ export default function CartComponent() {
         }
 
     }
-
-
+    
+    
     return (
 
         <Box padding={0}  >
 
             <Grid container sx={{ xs: { display: 'flex', flexWrap: "wrap" }, justifyContent: "center", }} >
-                {cartItemData && cartItemData.cartItemList && cartItemData.cartItemList.map((ele, index) => (
+
+            {cartItemData && cartItemData.cartItemList.length==0&&
+             <Item square elevation={0} sx={{ display: "flex", width: "150px", justifyContent: "center", alignItems: "center", gap: 1 }} >
+             <Typography variant='body2' sx={{ color: "black", fontSize: "21px", border: "2px solid lightgery" }}>
+                NO PRODUCT TO SHOW
+             </Typography>
+         </Item>
+            
+            }
+                {cartItemData && cartItemData.cartItemList.length>0 && cartItemData.cartItemList.map((ele, index) => (
 
                     <Grid key={ele._id || index} container item xs={10} sm={10} sx={{ display: "flex", flexDirection: { xs: "row", sm: "row" }, justifyContent: { xs: "center", md: "flext-start" }, alignItems: { xs: "center" }, borderTop: "1px solid lightgrey", backgroundColor: "white" }} >
 
@@ -275,6 +284,7 @@ export default function CartComponent() {
 
 
                 ))}
+
             </Grid>
 
 
