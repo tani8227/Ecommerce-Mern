@@ -9,10 +9,6 @@ import { Link } from 'react-router-dom';
 import useGetItem from '../../../utility/useGetItem.js';
 import useFindUniqueField from '../../../utility/useFindUniqueField.js';
 
-// import { useEffect, useState } from 'react';
-
-
-
 
 const theme = createTheme({
     components: {
@@ -43,6 +39,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function ShirtImgItemDetailsComponent(props) {
     
     const [Field, setField] = React.useState();
+    console.log(props.product, "jgjjgjjgjgj");
     const obj=
     {   
         ProductCategory:props.ProductCategory,
@@ -59,17 +56,10 @@ export default function ShirtImgItemDetailsComponent(props) {
     const field = useFindUniqueField(props.ProductCategory, obj);
     
 
+    // console.log(props, "jgjjgjjgjgj");
     console.log(props, "jgjjgjjgjgj");
 
 
-   
-
-
-
-    // console.log(props.product.product.comboId)
-  
-     
-    
     React.useEffect(() => {
 
         if (field) {
@@ -77,7 +67,7 @@ export default function ShirtImgItemDetailsComponent(props) {
         }
     }, [field])
     
-    // console.log(allItem)
+    console.log(allItem)
 
 
     return (

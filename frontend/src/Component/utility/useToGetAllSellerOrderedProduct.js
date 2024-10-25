@@ -12,7 +12,7 @@ export default function useToGetAllSellerOrderedProduct(flg) {
               if(orders===undefined)
                 {
 
-                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/product/get/`,
+                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/product/get/`,
                         {
                             method: "GET",
                             headers:

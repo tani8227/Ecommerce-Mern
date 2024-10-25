@@ -15,32 +15,7 @@ import useFilter from '../../utility/useFilters.js'
 import useDefaultParamSearch from '../../utility/useDefaultParamSearch.js'
 import useToGetAllItemsOfAnyModal  from '../../utility/useToGetAllItemsOfAnyModal.js'
 
-// import { createTheme } from '@mui/material/styles';
 
-
-// const theme = createTheme({
-//     components: {
-//         MuiCardMedia: {
-//             styleOverrides: {
-//                 root: {
-//                     width: "100%",
-
-
-//                 },
-//             },
-//         },
-//     },
-// });
-
-
-
-// const Item = styled(Paper)(({ theme }) => ({
-//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-//     ...theme.typography.body2,
-//     padding: theme.spacing(1),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-// }));
 
 export default function ProductList(props) {
     const [fridgeList, setFridgeList] = useState();
@@ -49,6 +24,7 @@ export default function ProductList(props) {
     const param = useParams();
 
     const Dispatch = useDispatch();
+    console.log(param);
 
     const mobilesData = useDefaultParamSearch(props.ProductCategory, `${param.companyName}`, props.priceRange);
     const mobilesData1 = useFilter(props.ProductCategory, props.filterList, props.priceRange);

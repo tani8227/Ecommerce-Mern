@@ -6,7 +6,7 @@ export const useGetCartItems = (refreshCart) => {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/get`,
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/get`,
                 {
                     method: "GET",
                     headers:

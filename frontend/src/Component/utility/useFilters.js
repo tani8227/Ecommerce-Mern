@@ -7,13 +7,13 @@ export default function useFilter(categoryName, companyName, price) {
 
     useEffect(() => {
 
-        if (companyName !== null) {
+        if (companyName&&categoryName.length>0) {
 
             async function get() {
 
                 const companyname = companyName.map(async (company_Name, index) => {
 
-                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/filter/companyNameAndPrice/?categoryName=${categoryName}&company_Name=${company_Name.name}&company_status=${company_Name.checked}&minRange=${price[0]}&maxRange=${price[1]}`,
+                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/filter/companyNameAndPrice/?categoryName=${categoryName}&company_Name=${company_Name.name}&company_status=${company_Name.checked}&minRange=${price[0]}&maxRange=${price[1]}`,
                         {
                             method: "GET",
                             headers:
@@ -26,6 +26,9 @@ export default function useFilter(categoryName, companyName, price) {
                         const Filterdata = await response.json();
                         console.log(Filterdata.data);
                         return Filterdata.data;
+                    }else
+                    {
+                        console.log(filterdata);
                     }
                 })
                 const AllcompanyName = await Promise.all(companyname);

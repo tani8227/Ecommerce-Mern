@@ -103,7 +103,7 @@ export default function CartComponent() {
     async function handleIncreased(cartItemId) {
 
 
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/increase-quantity/${cartItemId}`,
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/increase-quantity/${cartItemId}`,
             {
                 method: 'POST',
                 headers:
@@ -128,7 +128,7 @@ export default function CartComponent() {
 
     async function handleDecreased(cartItemId) {
 
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/decrease-quantity/${cartItemId}`,
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/decrease-quantity/${cartItemId}`,
             {
                 method: "POST",
                 headers:
@@ -154,7 +154,7 @@ export default function CartComponent() {
 
     async function handleRemoveCartItem(cartItemId) {
         console.log(cartItemId)
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/remove-item/${cartItemId}`,
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/remove-item/${cartItemId}`,
             {
                 method: "POST",
                 headers:
@@ -202,13 +202,13 @@ export default function CartComponent() {
 
             <Grid container sx={{ xs: { display: 'flex', flexWrap: "wrap" }, justifyContent: "center", }} >
 
-            {cartItemData && cartItemData.cartItemList&&cartItemData.cartItemList.length==0&&
-              <Grid item xs={10} sm={2} padding={0} sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: { xs: "center", md: "space-between" }, alignItems: { xs: "center" }, }}>
-              <Item square elevation={0} sx={{display: 'flex',width: '150px',justifyContent: 'center',alignItems: 'center',gap: 1,}}
+            {cartItemData && cartItemData.cartItemList&&cartItemData.cartItemList.length===0&&
+              <Grid item xs={10}  padding={0} sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: { xs: "center",}, alignItems: { xs: "center" },background:"white",gap: 1, marginTop:'5px'}}>
+              <Item square elevation={0} sx={{display: 'flex',width: 'auto',justifyContent: 'center',alignItems: 'center',}}
             >
               <Typography
                 variant="body2"
-                sx={{ color: 'black', fontSize: '21px', border: '2px solid lightgrey' }}
+                sx={{ color: 'black', fontSize: '21px' }}
               >
                 NO PRODUCT TO SHOW
               </Typography>

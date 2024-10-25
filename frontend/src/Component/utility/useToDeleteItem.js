@@ -5,7 +5,7 @@ export default function HandleDelete()
                   {
 
                     console.log(modalName, itemId)
-                     const response= await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/product/delete/?modalName=${modalName}&itemId=${itemId}`,
+                     const response= await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/product/delete/?modalName=${modalName}&itemId=${itemId}`,
                         {
                             method:'DELETE',
                             headers:

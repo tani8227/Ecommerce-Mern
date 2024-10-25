@@ -40,7 +40,7 @@ export default function AddressComponent(props) {
 
         try {
 
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/Address/add`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/Address/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

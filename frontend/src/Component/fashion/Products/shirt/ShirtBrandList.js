@@ -26,10 +26,7 @@ export default function ShirtBrandList(props) {
        return [...prev, obj]
       }
       
-    }
-    )
-
-  }
+    })}
 
   useEffect(() => {
     if (checkedBrand&&getBrandName!==undefined) {

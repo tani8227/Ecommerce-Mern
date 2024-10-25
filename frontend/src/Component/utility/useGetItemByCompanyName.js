@@ -12,7 +12,7 @@ export default function useGetAllItemsByComapanyName(categoryName, companyName) 
 
             const companiesData = companyName.map(async (company_Name) => {
 
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/${categoryName}/companyName/${company_Name}`,
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/${categoryName}/companyName/${company_Name}`,
                     {
                         method: "GET",
                         headers:

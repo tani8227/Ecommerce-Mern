@@ -1,9 +1,13 @@
 import mongoose from 'mongoose'
 
 export const getFilter = async (req, res) => {
+
+
     try {
         const { categoryName, company_Name, company_status, minRange, maxRange } = req.query;
-        if (company_status === 'true') {
+        if (company_status === 'true')
+             {
+
             console.log("hello there", company_Name, company_status, minRange, maxRange)
 
             const DynamicModel = mongoose.model(categoryName);
@@ -25,7 +29,7 @@ export const getFilter = async (req, res) => {
                     })
             } else {
 
-                return res.status(401).json(
+                return res.status(200).json(
                     {
                         message: "have not got the filter data",
                         data: [],
@@ -33,7 +37,7 @@ export const getFilter = async (req, res) => {
             }
         } else {
 
-            return res.status(401).json(
+            return res.status(200).json(
                 {
                     message: "have not got the filter data",
                     data: [],

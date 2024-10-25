@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 import useGetOneItem from '../../../utility/useGetOneItem';
 import useAddToCard from '../../../utility/useAddToCard'
 
-
-
 // const theme = createTheme({
 //     components: {
 //         MuiCardMedia: {
@@ -54,13 +52,11 @@ export default function ShirtImgDisplayComponent(props) {
         get()
     }, [data, product]); 
 
-
     function addToCard(mainCategory,schemaCollectionName,prodId, type)
     {
           
           handleAddToCart(mainCategory,schemaCollectionName,prodId, type);
     }
- 
  
     const handleClick = () => {
      if (!isClicked) {
@@ -70,11 +66,6 @@ export default function ShirtImgDisplayComponent(props) {
        setIsClicked(true);
      }
    };
-
-
-
-
-
     
     return (
 

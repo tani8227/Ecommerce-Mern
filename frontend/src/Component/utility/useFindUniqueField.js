@@ -11,7 +11,7 @@ export default function useFindUniqueField(categoryName, obj) {
 
             async function get() {
                 try {
-                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/${categoryName}/field/get?obj=${encodedObj}`, {
+                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/${categoryName}/field/get?obj=${encodedObj}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': "application/json",
@@ -21,17 +21,18 @@ export default function useFindUniqueField(categoryName, obj) {
                     if (response.ok) {
                         const data = await response.json();
                         setField(data);
-                    } else {
+                    } else 
+                    {
                         console.error("Failed to fetch data:", response.statusText);
                     }
-                } catch (error) {
+                } catch (error)
+                {
                     console.error("Error fetching data:", error);
                 }
             }
-
             get();
         }
-    }, [categoryName ,obj,obj.comboId,]);
+    }, []);
 
     console.log(field);
     return field;

@@ -12,7 +12,7 @@ function useGetItem(categoryName, itemName) {
                     {
 
                         
-                        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/${categoryName}/model-name/${encodeURIComponent(itemName)}`, {
+                        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/${categoryName}/model-name/${encodeURIComponent(itemName)}`, {
                             method: "GET",
                             headers: {
                                 "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function useGetItem(categoryName, itemName) {
                 }
 
         fetchData();
-    }, [categoryName, itemName]); // Ensure itemName and categoryName are included
+    }, []); 
 
     return { data };
 }

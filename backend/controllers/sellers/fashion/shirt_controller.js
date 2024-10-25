@@ -68,9 +68,10 @@ export const getAllItemByItemName = async (req, res) => {
 
    
         try {
-            //   console.log(req.params, "yesscncnc")
-              const data = await Shirt.find({comboId:req.params.itemName})
 
+            //   console.log(req.params, "yesscncnc")
+
+            const data = await Shirt.find({comboId:req.params.itemName})
             console.log(data);
             if (data) {
                 return res.status(200).json(
@@ -86,10 +87,7 @@ export const getAllItemByItemName = async (req, res) => {
                     message: "error in finding fridge",
                     error: error,
                 })
-        }
-    
-    
-    
+        }   
 }
 
  

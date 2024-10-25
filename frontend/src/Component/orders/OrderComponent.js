@@ -105,7 +105,7 @@ export default function OrderComponent(props) {
         
         
         
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/increase-quantity/${cartItemId}`,
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/increase-quantity/${cartItemId}`,
             {
                 method: 'POST',
                 headers:

@@ -9,7 +9,7 @@ export default function useAddToCard() {
 
 
 
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/add-to-cart/?mainCategory=${mainCategory}&prodId=${prodId}&schemaCollectionName=${schemaCollectionName}`,
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/add-to-cart/?mainCategory=${mainCategory}&prodId=${prodId}&schemaCollectionName=${schemaCollectionName}`,
             {
                 method: 'POST',
                 headers:
