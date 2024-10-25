@@ -2,8 +2,8 @@
     "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
     "redirects": [
       {
-        "source": "/(.*)",
-        "destination": "https://ecommerce-mern-rouge.vercel.app/",
+        "source": "https://ecommerce-mern-rouge.vercel.app/",
+        "destination": "/",
         "statusCode": 200
       }
     ]
