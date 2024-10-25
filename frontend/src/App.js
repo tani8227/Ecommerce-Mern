@@ -546,6 +546,7 @@ export const SearchResultComponentWrapper = () => {
 export function ProductManagementWrapper() {
   const param = useParams();
   console.log(param);
+  console.log(param);
 
 
   if (param.item === "Mobile") {
