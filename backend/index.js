@@ -6,6 +6,7 @@ import routes from "./routes/index.js";
 import bodyParser from "body-parser";
 import passport from "passport";
 import JWTStrategy from './config/passport-jwt-strategy.js';
+import morgan from "morgan";
 
 dotenv.config(); 
 const port = process.env.PORT || 8000; // Use PORT from .env or default to 8000
@@ -19,17 +20,17 @@ app.use(cors({
     credentials: true // Include credentials if needed
 }));
 
+app.use(morgan('dev'));
 
 // Log incoming requests and preflight requests
 app.use((req, res, next) => {
     console.log(`Received ${req.method} request for ${req.url}`);
-    
+
     next();
 });
 
 // Handle preflight requests for all routes
 app.options('*', cors()); // This allows preflight requests for all routes
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

@@ -693,8 +693,6 @@ export function ProductUpdateComponentWrapper() {
 
 export default function App() {
 
-
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -923,7 +921,6 @@ export default function App() {
                 ],
               },
             ]
-
         },
 
         {
