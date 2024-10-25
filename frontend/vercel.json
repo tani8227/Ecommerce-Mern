@@ -1,17 +1,10 @@
 {
-    "headers": [
+    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+    "redirects": [
       {
-        "source": "/(.*).js",
-        "headers": [
-          { "key": "Content-Type", "value": "application/javascript" }
-        ]
-      },
-      {
-        "source": "/(.*).css",
-        "headers": [
-          { "key": "Content-Type", "value": "text/css" }
-        ]
+        "source": "/(.*)",
+        "destination": "/",
+        "statusCode": 301
       }
-    ],
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+    ]
   }

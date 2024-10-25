@@ -845,8 +845,6 @@ export default function App() {
                           element: <Electronics productCategory={'Electronics'} />,
                         },
                         {
-
-
                           path: ":Item",
                           children:
                             [
