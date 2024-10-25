@@ -4,7 +4,7 @@
       {
         "source": "/(.*)",
         "destination": "/",
-        "statusCode": 301
+        "statusCode": 200
       }
     ]
   }
