@@ -66,7 +66,7 @@ export const SignUpComponent = () => {
                                 }else
                                 {
                                     
-                                    navigate('buyer/signin');
+                                    navigate('/buyer/signin');
                                 }
                             }
             }else
