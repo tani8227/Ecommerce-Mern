@@ -62,11 +62,11 @@ export const SignUpComponent = () => {
                             if(data.data&&data.data.user&&data.data.user.usertype==="seller")
                                 {
                                     console.log(data.data.user)
-                                    navigate('/seller/dashboard')
+                                    navigate('/seller/signin')
                                 }else
                                 {
                                     
-                                    navigate('/');
+                                    navigate('buyer/signin');
                                 }
                             }
             }else
