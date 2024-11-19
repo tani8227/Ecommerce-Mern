@@ -10,17 +10,7 @@ import useAddToCard from '../../../utility/useAddToCard'
 
 
 
-// const theme = createTheme({
-//     components: {
-//         MuiCardMedia: {
-//             styleOverrides: {
-//                 root: {
-//                     width: 'fit-content',
-//                 },
-//             },
-//         },
-//     },
-// });
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -36,6 +26,7 @@ export default function TrackPantImgDisplayComponent(props) {
     const handleAddToCart= useAddToCard();
     const [isClicked, setIsClicked]= useState(false);
     const [product, setProduct]= useState();
+    const[loader, setLoader]=useState(false);
 
     const { item: data } = useGetOneItem(props.ProductCategory,props.id); 
     
@@ -47,7 +38,7 @@ export default function TrackPantImgDisplayComponent(props) {
                
                 setProduct(data);
                 setDefaultImg(data.imgUrl[0]);
-                
+                setLoader(true)
                 
             }
         }
@@ -73,6 +64,10 @@ export default function TrackPantImgDisplayComponent(props) {
 
 
 
+   if(!loader)
+    {
+        return <h3></h3>
+    }
 
     
     return (

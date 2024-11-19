@@ -6,6 +6,9 @@ import ImgComponenForDetailsPage from "./ImgComponenForDetailsPage";
 
 
 export default function CardComponent({MobileList}) {
+
+
+    
     
     return (
 

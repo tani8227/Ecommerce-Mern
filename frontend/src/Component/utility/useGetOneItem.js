@@ -8,7 +8,7 @@ export default function useGetOneItem( categoryName, itemId) {
                
             async function handleItem() {
     
-                if(itemId!==undefined)
+                if(categoryName!==undefined&&itemId!==undefined)
                     {
 
                         const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/${categoryName}/${itemId}`,

@@ -25,7 +25,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function MainFashion(props) {
-  console.log("MainFashion component rendered");
+ 
   return (
     <Box sx={{ flexGrow: 1, padding: 1 }}>
       <Grid container sx={{ display: 'flex', justifyContent: 'center', alignItems: "center", backgroundColor: "white", flexWrap: "wrap" }} >

@@ -46,19 +46,25 @@ export default function ShoeImgComponentForDetailsPage(props) {
 
     const [fridgeData, setFridgeData] = useState();
     
+     const [loader, setLoader]= useState(false);
 
+     console.log(props.fridgeList);
 
 
     useEffect(() => {
         if (props.fridgeList&&props.fridgeList.length>0) {
             setFridgeData(props.fridgeList)
-
+setLoader(true);
         }
 
     }, [props.fridgeList])
 
 
 
+    if(!loader)
+        {
+            return <h3>Loading...</h3>
+        }
 
 
     return (

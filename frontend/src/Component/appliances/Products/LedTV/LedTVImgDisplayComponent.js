@@ -24,6 +24,7 @@ export default function ImgDisplayComponent(props) {
     const handleAddToCart= useAddToCard();
     const [isClicked, setIsClicked]= useState(false);
     const [product, setProduct]= useState();
+    const[loader, setLoader]=useState(false);
 
     const { item: data } = useGetOneItem(props.ProductCategory,props.id); 
     
@@ -35,7 +36,7 @@ export default function ImgDisplayComponent(props) {
                
                 setProduct(data);
                 setDefaultImg(data.imgUrl[0]);
-                
+                setLoader(true)
                 
             }
         }
@@ -60,6 +61,10 @@ export default function ImgDisplayComponent(props) {
    };
 
 
+   if(!loader)
+    {
+        return <h3></h3>
+    }
 
     
     return (
@@ -87,7 +92,7 @@ export default function ImgDisplayComponent(props) {
                             <Card square elevation={0} sx={{ width:"100%", objectFit:"contain"}}>
                                 <CardMedia
                                     component="img"
-                                    sx={{ margin: 'auto', maxWidth:"280px", maxHeight:"280px", objectFit:"contain" }}
+                                    sx={{ margin: 'auto', maxWidth:"250px", maxHeight:"250px", objectFit:"contain" }}
                                     image={`${props.img!==undefined&&props.img.length === undefined ? defaultImg : props.img}`.replace("http://", "https://")}
                                     alt={`iphone-14`}
                                 />

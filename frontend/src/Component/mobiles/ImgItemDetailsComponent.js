@@ -41,6 +41,11 @@ export default function ImgItemDetailsComponent({ product }) {
 
     const { data: allItem } = useGetItem('mobile', product.product.modelName);
 
+    if(product.product.modelName===undefined)
+        {
+              return<h3>Loading...</h3>
+        }
+console.log(allItem);
     return (
         <Box padding={0} width={"100%"}>
 

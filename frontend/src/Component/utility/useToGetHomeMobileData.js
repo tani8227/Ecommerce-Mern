@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function useToGetHomeMobileData() {
     const [data, setData] = useState(null);
+    const [load, setLoad]= useState(false);
 
 
     const getAllMobileItems = async () => {
@@ -21,6 +22,7 @@ export default function useToGetHomeMobileData() {
                     {
                         setData(result.data); 
                         console.log(result, "Fetched data successfully");
+                        setLoad(true);
 
                     }
             } else {

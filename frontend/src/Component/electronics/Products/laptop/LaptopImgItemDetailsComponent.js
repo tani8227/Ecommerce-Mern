@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import useGetItem from '../../../utility/useGetItem';
 import useFindUniqueField from '../../../utility/useFindUniqueField';
 import { useEffect, useState } from 'react';
-
+import { useMemo } from 'react';
 
 
 
@@ -43,37 +43,54 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function LaptopImgItemDetailsComponent(props) {
 
-    const [Field, setField] = useState();
+    // const [Field, setField] = useState();
 
     // console.log(props, "jgjjgjjgjgj");
 
-    const obj =
-    {
-        categoryName: props.ProductCategory,
-        companyName: props.product.product.companyName,
-        comboId: props.product.product.comboId,
-        series: props.product.product.series,
-        type: props.product.product.type,
-        processorBrand: props.product.product.processorBrand,
-        processorName: props.product.product.processorName,
-        processorGeneration: props.product.product.processorGeneration,
-        ramType: props.product.product.ramType,
-        dedicatedGraphicsMempryType: props.product.product.dedicatedGraphicsMempryType,
-    }
+    // const obj = useMemo(() => ({
+    //     categoryName: props.ProductCategory,
+    //     companyName: props.product.product.companyName,
+    //     comboId: props.product.product.comboId,
+    //     series: props.product.product.series,
+    //     type: props.product.product.type,
+    //     processorBrand: props.product.product.processorBrand,
+    //     processorName: props.product.product.processorName,
+    //     processorGeneration: props.product.product.processorGeneration,
+    //     ramType: props.product.product.ramType,
+    //     dedicatedGraphicsMempryType: props.product.product.dedicatedGraphicsMempryType,
+    // }), [
+    //     props.ProductCategory,
+    //     props.product.product.companyName,
+    //     props.product.product.comboId,
+    //     props.product.product.series,
+    //     props.product.product.type,
+    //     props.product.product.processorBrand,
+    //     props.product.product.processorName,
+    //     props.product.product.processorGeneration,
+    //     props.product.product.ramType,
+    //     props.product.product.dedicatedGraphicsMempryType
+    // ]);
+    
 
 
 
 
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, obj);
-    useEffect(() => {
+    // const field = useFindUniqueField(props.ProductCategory, obj);
+    // useEffect(() => {
 
-        if (field) {
-            setField(field.data);
-        }
-    }, [field])
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
     console.log(allItem)
+
+
+    if(props.product.product.modelName===undefined)
+        {
+              return<h3>Loading...</h3>
+        }
 
     return (
         <Box padding={0} width={"100%"}>
@@ -175,10 +192,10 @@ export default function LaptopImgItemDetailsComponent(props) {
                     </Item>
 
 
-                    <Item square elevation={0} sx={{ width: "fit-content" }}>
+                    {/* <Item square elevation={0} sx={{ width: "fit-content" }}>
                         <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
                             
-                        {allItem && allItem.length > 0 &&
+                        {Field && Field.length > 0 &&
                                 <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px" }}>
                                     
                                     Capacity:
@@ -200,7 +217,7 @@ export default function LaptopImgItemDetailsComponent(props) {
 
                             ))}
                         </Box>
-                    </Item>
+                    </Item> */}
                 </Grid>
             </Grid>
 

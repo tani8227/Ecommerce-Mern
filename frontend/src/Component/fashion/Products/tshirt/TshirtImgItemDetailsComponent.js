@@ -42,19 +42,19 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function TshirtImgItemDetailsComponent(props) {
 
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
     console.log(props);
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, {});
+    // const field = useFindUniqueField(props.ProductCategory, {});
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
-        }
-    }, [field])
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
     React.useEffect(() => {
 
         if (allItem) {
@@ -62,7 +62,17 @@ export default function TshirtImgItemDetailsComponent(props) {
             console.log(allItem)
         }
     }, [allItem])
-    console.log(Field)
+   
+    console.log(allItem)
+     
+
+     
+    if(!allItem)
+        {
+          
+              return<h3>Loading...</h3>
+        }
+
     return (
 
         <Box padding={0} width={"100%"}>
@@ -159,7 +169,8 @@ export default function TshirtImgItemDetailsComponent(props) {
 
                         ))}
                     </Item>
-                    <Item square elevation={0} sx={{ width: "fit-content" }}>
+
+                    {/* <Item square elevation={0} sx={{ width: "fit-content" }}>
                     {Field&&Field.length>0&&
                             <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px" }}>
                                 Color:
@@ -181,7 +192,7 @@ export default function TshirtImgItemDetailsComponent(props) {
 
                             ))}
                         </Box>
-                    </Item>
+                    </Item> */}
 
                 </Grid>
             </Grid>

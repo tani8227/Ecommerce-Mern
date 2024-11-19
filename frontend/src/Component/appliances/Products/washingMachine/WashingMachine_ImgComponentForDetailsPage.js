@@ -45,17 +45,27 @@ export default function WashingMachineImgComponentForDetailsPage(props) {
     console.log(props.fridgeList);
 
     const [fridgeData, setFridgeData] = useState();
-    
+      
+const [loader, setLoader]= useState(false);
+
 
 
 
     useEffect(() => {
         if (props.fridgeList&&props.fridgeList.length>0) {
             setFridgeData(props.fridgeList)
-
+            setLoader(true);
         }
 
     }, [props.fridgeList])
+
+
+    
+    if(!loader)
+        {
+            return <h3>Loading...</h3>
+        }
+
    
     return (
 

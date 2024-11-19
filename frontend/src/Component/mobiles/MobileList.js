@@ -12,36 +12,10 @@ import useFilter from '../utility/useFilters';
 import useDefaultParamSearch  from '../utility/useDefaultParamSearch';
 import useToGetAllItemsOfAnyModal from '../utility/useToGetAllItemsOfAnyModal';
 
-// import { createTheme } from '@mui/material/styles';
-
-
-// const theme = createTheme({
-//     components: {
-//         MuiCardMedia: {
-//             styleOverrides: {
-//                 root: {
-//                     width: "100%",
-
-
-//                 },
-//             },
-//         },
-//     },
-// });
-
-
-
-// const Item = styled(Paper)(({ theme }) => ({
-//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-//     ...theme.typography.body2,
-//     padding: theme.spacing(1),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-// }));
 
 export default function MobileList(props) {
     
-  const [mobileList, setMobileList]= useState();
+  const [mobileList, setMobileList]= useState(null);
         
   const param = useParams();
   const Dispatch= useDispatch();
@@ -82,6 +56,11 @@ export default function MobileList(props) {
 
  }, [mobilesData, searchQueryFilterData, Dispatch, mobilesData1, props.ProductCategory, props.filterList, props.priceRange, props.data]);
 
+  
+ if(mobileList&&mobileList.length===0)
+    {
+        return <h3 style={{textAlign:'center'}}>No Data To Show!!!</h3>
+    }
  
     return (
         <>

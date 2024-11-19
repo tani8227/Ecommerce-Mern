@@ -88,7 +88,7 @@ export default function ACImgDisplayComponent(props) {
                             <Card square elevation={0} sx={{ width:"100%", objectFit:"contain"}}>
                                 <CardMedia
                                     component="img"
-                                    sx={{ margin: 'auto', maxWidth:"280px", maxHeight:"280px", objectFit:"contain" }}
+                                    sx={{ margin: 'auto', maxWidth:"250px", maxHeight:"250px", objectFit:"contain" }}
                                     image={`${props.img!==undefined&&props.img.length === undefined ? defaultImg : props.img}`}
                                     alt={`iphone-14`}
                                 />

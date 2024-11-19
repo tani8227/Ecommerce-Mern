@@ -32,11 +32,12 @@ export default function ImgComponent({data}) {
     
     const [flourData, setFlourData] = useState();
     const dispatch = useDispatch();
-   
+    
     useEffect(() => {
         setFlourData(data);
     }, [data, dispatch]);
-
+    
+    
     return (
         <ThemeProvider theme={theme}>
             <Box padding={0} width={"100%"}>

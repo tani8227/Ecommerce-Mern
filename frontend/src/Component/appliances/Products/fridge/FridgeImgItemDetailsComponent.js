@@ -7,12 +7,10 @@ import { List, ListItem, Typography } from '@mui/material';
 import { Box, Card, ThemeProvider, createTheme, CardMedia, } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useGetItem from '../../../utility/useGetItem';
-import useFindUniqueField from '../../../utility/useFindUniqueField';
+import useFindUniqueField from '../../../utility/useFindUniqueField.js';
+import { useMemo } from 'react';
 
 // import { useEffect, useState } from 'react';
-
-
-
 
 const theme = createTheme({
     components: {
@@ -41,36 +39,50 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 export default function ImgItemDetailsComponent(props) {
-
-    const [Field, setField] = React.useState();
+    // updating this this chunk of code that'y commenting 
+    // const [Field, setField] = React.useState();
 
     console.log(props, "jgjjgjjgjgj");
 
 
-    const obj =
-
-    {
-        categoryName: props.ProductCategory,
-        comboId:props.product.product.comboId,
-        companyName: props.product.product.companyName,
-        defrostingType: props.product.product.defrostingType,
-        type: props.product.product.type,
-        starRating: props.product.product.starRating,
-        compressorType: props.product.product.compressorType,
-        refrigeratorType: props.product.product.refrigeratorType,
-        launchYear: props.product.product.launchYear,
-       
-    }
+    // const obj = useMemo(() => ({
+    //     categoryName: props.ProductCategory,
+    //     comboId: props.product.product.comboId,
+    //     companyName: props.product.product.companyName,
+    //     defrostingType: props.product.product.defrostingType,
+    //     type: props.product.product.type,
+    //     starRating: props.product.product.starRating,
+    //     compressorType: props.product.product.compressorType,
+    //     refrigeratorType: props.product.product.refrigeratorType,
+    //     launchYear: props.product.product.launchYear,
+    // }), [
+    //     props.ProductCategory,
+    //     props.product.product.comboId,
+    //     props.product.product.companyName,
+    //     props.product.product.defrostingType,
+    //     props.product.product.type,
+    //     props.product.product.starRating,
+    //     props.product.product.compressorType,
+    //     props.product.product.refrigeratorType,
+    //     props.product.product.launchYear,
+    // ]);
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, obj);
-    React.useEffect(() => {
+    // const field = useFindUniqueField(props.ProductCategory, obj);
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
+    //     if (field) {
+    //         console.log(field.data, "/**-//");
+    //         setField(field.data);
+    //     }
+    // }, [field])
+    // console.log(Field)
+
+      console.log(props.product.product.modelName)
+    if(props.product.product.comboId===undefined)
+        {
+              return<h3>Loading...</h3>
         }
-    }, [field])
-    console.log(Field)
 
     return (
         <Box padding={0} width={"100%"}>
@@ -175,12 +187,16 @@ export default function ImgItemDetailsComponent(props) {
                         </Box>
                     </Item>
 
-
+{/* 
                     <Item square elevation={0} sx={{ width: "fit-content" }}>
                         <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
-                            <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px", }}>
-                                Capacity:
-                            </Typography>
+                        {Field && Field.length > 0 &&
+                                <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px" }}>
+                                    Capacity:
+                                   
+                                </Typography>
+                            }
+                            
                             {Field && Field.length > 0 && Field.map((ele, index) => (
 
 
@@ -196,7 +212,7 @@ export default function ImgItemDetailsComponent(props) {
 
                             ))}
                         </Box>
-                    </Item>
+                    </Item> */}
                 </Grid>
             </Grid>
 

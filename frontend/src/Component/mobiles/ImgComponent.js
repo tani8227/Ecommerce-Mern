@@ -41,10 +41,13 @@ export default function ImgComponent({data}) {
 
     useEffect(() => {
         setMobileData(data);
+        
     }, [data, dispatch]);
  
     
 console.log(mobileData);
+
+
     return (
         
         <ThemeProvider theme={theme}>

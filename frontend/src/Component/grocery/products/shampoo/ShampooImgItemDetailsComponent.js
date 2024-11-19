@@ -42,20 +42,27 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ImgItemDetailsComponent(props) {
 
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
     console.log(props);
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, {});
+    // const field = useFindUniqueField(props.ProductCategory, {});
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
+    // console.log(Field)
+
+ 
+    if(props.product.product.companyName===undefined)
+        {
+              return<h3>Loading...</h3>
         }
-    }, [field])
-    console.log(Field)
+
     return (
 
         <Box padding={0} width={"100%"}>
@@ -150,7 +157,7 @@ export default function ImgItemDetailsComponent(props) {
                     </Item>
 
 
-                    <Item square elevation={0} sx={{ width: "fit-content" }}>
+                    {/* <Item square elevation={0} sx={{ width: "fit-content" }}>
                         <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
                         {Field && Field.length > 0 &&
                             <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px", }}>
@@ -172,7 +179,8 @@ export default function ImgItemDetailsComponent(props) {
 
                             ))}
                         </Box>
-                    </Item>
+                    </Item> */}
+                    
                 </Grid>
             </Grid>
 

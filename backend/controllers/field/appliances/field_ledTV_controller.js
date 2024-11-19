@@ -4,7 +4,8 @@ export const getField = async (req, res) => {
 
   const obj = JSON.parse(req.query.obj);
   console.log(obj)
-  if (obj && obj.categoryName !== undefined && obj.companyName !== undefined && obj.series !== undefined && obj.displaySize !==undefined) {
+  if (obj && obj.categoryName !== undefined && obj.companyName !== undefined && obj.series !== undefined && obj.displaySize !==undefined)
+     {
 
     const dynamicModel = new mongoose.model(obj.categoryName);
 
@@ -44,6 +45,13 @@ export const getField = async (req, res) => {
         message: "got the capacities"
       })
 
+  }else
+  {
+    return res.status(200).json(
+      {
+        data: [],
+        message: "got the capacities"
+      })
   }
 }
 

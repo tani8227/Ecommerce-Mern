@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 
 function useGetItem(categoryName, itemName) {
     const [data, setData] = useState(null);
+    const [loader, setLoader]= useState(false);
     
     console.log(categoryName, itemName)
     useEffect(() => {
           
         const fetchData = async () => {
            
-                   if(categoryName&&itemName)
+                   if(categoryName!==undefined&&itemName!==undefined)
                     {
 
                         
@@ -22,15 +23,16 @@ function useGetItem(categoryName, itemName) {
                         if (response.ok) {
                             const result = await response.json();
                             setData(result.data);
+                            setLoader(true);
                         }
                         
                     }
                 }
 
         fetchData();
-    }, []); 
+    },[categoryName, itemName] ); 
 
-    return { data };
+    return { data, loader };
 }
 
 export default useGetItem;

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export const getField = async (req, res) => {
 
   const obj = JSON.parse(req.query.obj);
-  // console.log(obj)
+  console.log(obj)
   if (obj && obj.categoryName !== undefined && obj.defrostingType !== undefined && obj.type !== undefined && obj.starRating !==undefined&&obj.compressorType !==undefined&&obj.refrigeratorType !==undefined&&obj.launchYear!==undefined) {
 
     const dynamicModel = new mongoose.model(obj.categoryName);

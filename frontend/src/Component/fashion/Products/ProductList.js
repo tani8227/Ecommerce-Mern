@@ -70,6 +70,10 @@ export default function ProductList(props) {
 
     console.log(fridgeList)
 
+    if(fridgeList&&fridgeList.length===0)
+        {
+            return <h3 style={{textAlign:'center'}}>No Data To Show!!!</h3>
+        }
 
     return (
         <>

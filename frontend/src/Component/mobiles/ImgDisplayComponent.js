@@ -40,7 +40,7 @@ export default function ImgDisplayComponent(props) {
     const { item: data } = useGetOneItem(props.ProductCategory,props.id);
     const handleAddToCart = useAddToCard();
     const [isClicked, setIsClicked]= useState(false);
-   
+    const [loader, setLoader]=useState(false);
    
        console.log(data);
     useEffect(() => {
@@ -51,8 +51,8 @@ export default function ImgDisplayComponent(props) {
                
                 setProduct(data);
                 setDefaultImg(data.imgUrl[0]);
-                
-                
+                setLoader(true)
+               
             }
         }
         get()
@@ -76,7 +76,13 @@ const handleClick = () => {
     }
   };
          
+  if(!loader)
+    {
+        return <h3 style={{textAlign:'center'}}></h3>
+    }
 
+
+  
     return (
 
         <ThemeProvider theme={theme}>

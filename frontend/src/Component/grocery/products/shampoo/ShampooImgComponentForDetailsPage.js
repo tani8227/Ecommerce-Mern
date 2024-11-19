@@ -41,19 +41,25 @@ export default function ShampooImgComponentForDetailsPage(props) {
     console.log(props.fridgeList);
 
     const [fridgeData, setFridgeData] = useState();
-    
+        
+const [loader, setLoader]= useState(false);
+
 
 
 
     useEffect(() => {
         if (props.fridgeList&&props.fridgeList.length>0) {
             setFridgeData(props.fridgeList)
-
+setLoader(true)
         }
 
     }, [props.fridgeList])
 
 
+    if(!loader)
+        {
+            return <h3>Loading...</h3>
+        }
 
 
 
@@ -77,7 +83,7 @@ export default function ShampooImgComponentForDetailsPage(props) {
                                         <ThemeProvider theme={theme}>
                                             <CardMedia className='xs-phone-width'
                                                 component="img"
-                                                sx={{ margin: 'auto', maxWidth: "280px", maxHeight: "280px", objectFit: "contain" }}
+                                                sx={{ margin: 'auto', maxWidth: "220px", maxHeight: "220px", objectFit: "contain" }}
                                                 image={`${ele.imgUrl[0].replace("http://", "https://")}`}
                                                 alt="Paella dish"
                                             />

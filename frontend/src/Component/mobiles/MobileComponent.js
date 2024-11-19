@@ -24,7 +24,7 @@ export default function MobileComponent(props) {
 
     console.log(props)
     const [AllCompanies, setAllCompanies] = useState([])
-
+    const [loader, setLoader]=useState(false);
 
     const companydata = useGetAllItemsByComapanyName(props.categoryName, props.companies);
     // const Realme = useGetAllItemsByComapanyName('mobile', 'Realme');
@@ -34,6 +34,7 @@ export default function MobileComponent(props) {
         if (companydata) {
 
             setAllCompanies(companydata);
+            setLoader(true);
         }
     }, [companydata, AllCompanies]);
 
@@ -41,6 +42,10 @@ export default function MobileComponent(props) {
 
 
     console.log(AllCompanies)
+    if(!loader)
+        {
+            return <h3>Loading...</h3>
+        }
 
     return (
 

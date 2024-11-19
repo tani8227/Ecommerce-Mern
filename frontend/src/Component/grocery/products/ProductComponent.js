@@ -34,7 +34,7 @@ export default function ProductComponent(props) {
     
     const [AllCompanies, setAllCompanies] = useState([])
     console.log(props, "88888888/******************************22222222222222222@@@@@@@@@@@@@@@@@@@")
-
+     const [loader, setLoader]= useState(false);
   
     const companydata = useGetAllItemsByComapanyName(props.ProductCategory, props.companies);
    
@@ -44,11 +44,15 @@ export default function ProductComponent(props) {
         if (companydata) {
             
             setAllCompanies(companydata);
+            setLoader(true);
         }
     }, [companydata, AllCompanies]);
 
       
-
+   if(!loader)
+    {
+        return <h3>Loading...</h3>
+    }
 
     return (
         

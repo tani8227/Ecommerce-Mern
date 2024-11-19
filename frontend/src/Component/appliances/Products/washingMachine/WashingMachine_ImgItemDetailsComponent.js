@@ -8,6 +8,7 @@ import { Box, Card, ThemeProvider, createTheme, CardMedia, } from '@mui/material
 import { Link } from 'react-router-dom';
 import useGetItem from '../../../utility/useGetItem';
 import useFindUniqueField from '../../../utility/useFindUniqueField';
+import { useMemo } from 'react';
 
 // import { useEffect, useState } from 'react';
 
@@ -43,39 +44,54 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function ImgItemDetailsComponent(props) {
 
 
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
 
     console.log(props, "jgjjgjjgjgj");
 
-    const obj =
-
-    {
-        categoryName: props.ProductCategory,
-        companyName: props.product.product.companyName,
-        comboId: props.product.product.comboId,
-        wifi: props.product.product.wifi,
-        starRating: props.product.product.starRating,
-        technology: props.product.product.technology,
-        maxSpinSpeed: props.product.product.maxSpinSpeed,
-        functionType: props.product.product.functionType,
-        inBuiltHeater: props.product.product.inBuiltHeater,
-        capacity:props.product.product.capacity,
-    }
+    // const obj = useMemo(() => ({
+    //     categoryName: props.ProductCategory,
+    //     companyName: props.product.product.companyName,
+    //     comboId: props.product.product.comboId,
+    //     wifi: props.product.product.wifi,
+    //     starRating: props.product.product.starRating,
+    //     technology: props.product.product.technology,
+    //     maxSpinSpeed: props.product.product.maxSpinSpeed,
+    //     functionType: props.product.product.functionType,
+    //     inBuiltHeater: props.product.product.inBuiltHeater,
+    //     capacity: props.product.product.capacity,
+    // }), [
+    //     props.ProductCategory,
+    //     props.product.product.companyName,
+    //     props.product.product.comboId,
+    //     props.product.product.wifi,
+    //     props.product.product.starRating,
+    //     props.product.product.technology,
+    //     props.product.product.maxSpinSpeed,
+    //     props.product.product.functionType,
+    //     props.product.product.inBuiltHeater,
+    //     props.product.product.capacity
+    // ]);
+    
 
 
 
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, obj);
-    React.useEffect(() => {
+    // const field = useFindUniqueField(props.ProductCategory, obj);
 
-        if (field) {
-            setField(field.data);
+    // React.useEffect(() => {
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
+    
+    // console.log(Field)
+
+
+    if(props.product.product.modelName===undefined)
+        {
+              return<h3>Loading...</h3>
         }
-    }, [field])
-    console.log(Field)
-
-
     return (
         <Box padding={0} width={"100%"}>
 
@@ -176,12 +192,15 @@ export default function ImgItemDetailsComponent(props) {
                             ))}
                         </Box>
                     </Item>
-
+{/* 
                     <Item square elevation={0} sx={{ width: "fit-content" }}>
                         <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
-                            <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px", }}>
-                                Capacity:
-                            </Typography>
+                        {Field && Field.length > 0 &&
+                                <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px" }}>
+                                    Capacity:
+                                   
+                                </Typography>
+                            }
                             {Field && Field.length > 0 && Field.map((ele, index) => (
 
 
@@ -198,6 +217,7 @@ export default function ImgItemDetailsComponent(props) {
                             ))}
                         </Box>
                     </Item>
+                                        */}
 
                 </Grid>
             </Grid>

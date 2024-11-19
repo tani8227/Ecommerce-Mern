@@ -31,7 +31,9 @@ export default function Home() {
 
     const [AllMobileCompanies, setAllMobileCompanies] = useState();
     const [AllFashionCompanies, setAllFashionCompanies] = useState();
-
+    const [mobloader, setMobLoader]= useState(false);
+    const [fashLoader, setFashLoader]= useState(false);
+    
 
     const mobiledata = useToGetHomeMobileData();
     const fashiondata = useToGetHomeFashionData();
@@ -40,18 +42,22 @@ export default function Home() {
     useEffect(() => {
         if (mobiledata) {
             setAllMobileCompanies(mobiledata);
+            setMobLoader(true);
         }
     }, [mobiledata]);
 
     useEffect(() => {
         if (fashiondata) {
             setAllFashionCompanies(fashiondata);
+            setFashLoader(true);
         }
     }, [fashiondata]);
 
 
     console.log(AllMobileCompanies)
     console.log(AllFashionCompanies)
+
+    
  
     return (
         <Box>
@@ -133,8 +139,10 @@ export default function Home() {
                             </Typography>
                         </Item>
                     </Grid>
-
+                 
                     <Grid item xs={12} sx={{ display: 'flex', overflowX: 'scroll', scrollbarWidth: 'none',  msOverflowStyle: 'none',  flexWrap: 'nowrap', justifyContent: { xs: 'flex-start', sm: 'space-evenly' }, alignItems: 'center', backgroundColor: 'white', padding: 1, width: '100%' }}>
+                      {!mobloader&&<h3>Loading</h3>}
+                        
                         {AllMobileCompanies && AllMobileCompanies.data && AllMobileCompanies.data.length > 0 && AllMobileCompanies.data.map((ele, index) =>
                         (
                             <Link key={ele._id || index} to={`/${AllMobileCompanies.modalName}`}>
@@ -169,7 +177,9 @@ export default function Home() {
                             </Typography>
                         </Item>
                     </Grid>
-
+             
+                    {!fashLoader&&<h3>Loading</h3>}
+ 
                     <Grid item xs={12} sx={{ display: 'flex', overflowX: 'scroll', scrollbarWidth: 'none',  msOverflowStyle: 'none',  flexWrap: 'nowrap', justifyContent: { xs: 'flex-start', sm: 'space-evenly' }, alignItems: 'center', backgroundColor: 'white', padding: 1, width: '100%' }}>
                         {AllFashionCompanies && AllFashionCompanies.length > 0 && AllFashionCompanies.map((ele, index) => {
 

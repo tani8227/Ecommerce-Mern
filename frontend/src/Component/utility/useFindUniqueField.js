@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 export default function useFindUniqueField(categoryName, obj) {
     const [field, setField] = useState(null);
     console.log(obj);
-    useEffect(() => {
-        
+    useEffect(() =>
+        {
         if (categoryName && obj&& Object.keys(obj).length) {
             const encodedObj = encodeURIComponent(JSON.stringify(obj));
             console.log("Encoded Obj:", encodedObj);
@@ -32,7 +32,7 @@ export default function useFindUniqueField(categoryName, obj) {
             }
             get();
         }
-    }, []);
+    }, [obj]);
 
     console.log(field);
     return field;

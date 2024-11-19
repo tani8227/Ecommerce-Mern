@@ -8,6 +8,7 @@ import { Box, Card, ThemeProvider, createTheme, CardMedia, } from '@mui/material
 import { Link } from 'react-router-dom';
 import useGetItem from '../../../utility/useGetItem';
 import useFindUniqueField from '../../../utility/useFindUniqueField';
+import { useMemo } from 'react';
 
 // import { useEffect, useState } from 'react';
 
@@ -42,33 +43,47 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function PrinterImgItemDetailsComponent(props) {
 
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
     // console.log(props);
 
-    const obj =
-    {
-        categoryName: props.ProductCategory,
-        companyName: props.product.product.companyName,
-        comboId: props.product.product.comboId,
-        printingMethod: props.product.product.printingMethod,
-        type: props.product.product.type,
-        refillType: props.product.product.refillType,
-        wirelessSupport: props.product.product.wirelessSupport,
-        usbSupport: props.product.product.usbSupport,
-        voiceAssistantCompatibility: props.product.product.voiceAssistantCompatibility,
-        salesBox: props.product.product.salesBox,
-    }
+    // const obj = useMemo(() => ({
+    //     categoryName: props.ProductCategory,
+    //     companyName: props.product.product.companyName,
+    //     comboId: props.product.product.comboId,
+    //     printingMethod: props.product.product.printingMethod,
+    //     type: props.product.product.type,
+    //     refillType: props.product.product.refillType,
+    //     wirelessSupport: props.product.product.wirelessSupport,
+    //     usbSupport: props.product.product.usbSupport,
+    //     voiceAssistantCompatibility: props.product.product.voiceAssistantCompatibility,
+    //     salesBox: props.product.product.salesBox,
+    // }), [
+    //     props.ProductCategory,
+    //     props.product.product.companyName,
+    //     props.product.product.comboId,
+    //     props.product.product.printingMethod,
+    //     props.product.product.type,
+    //     props.product.product.refillType,
+    //     props.product.product.wirelessSupport,
+    //     props.product.product.usbSupport,
+    //     props.product.product.voiceAssistantCompatibility,
+    //     props.product.product.salesBox
+    // ]);
+    
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, obj);
+    // const field = useFindUniqueField(props.ProductCategory, obj);
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
-        }
-    }, [field])
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
+
+    // console.log(Field)
+    
     React.useEffect(() => {
 
         if (allItem) {
@@ -77,7 +92,12 @@ export default function PrinterImgItemDetailsComponent(props) {
         }
     }, [allItem])
 
-    console.log(Field)
+
+
+    if(props.product.product.modelName===undefined)
+        {
+              return<h3>Loading...</h3>
+        }
     return (
 
         <Box padding={0} width={"100%"}>
@@ -174,7 +194,7 @@ export default function PrinterImgItemDetailsComponent(props) {
 
                         ))}
                     </Item>
-                    <Item square elevation={0} sx={{ width: "fit-content" }}>
+                    {/* <Item square elevation={0} sx={{ width: "fit-content" }}>
                         <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
                             <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px", }}>
                                 Capacity:
@@ -194,7 +214,7 @@ export default function PrinterImgItemDetailsComponent(props) {
 
                             ))}
                         </Box>
-                    </Item>
+                    </Item> */}
 
                 </Grid>
             </Grid>

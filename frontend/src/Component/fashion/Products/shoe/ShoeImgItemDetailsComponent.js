@@ -42,20 +42,28 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ShoeImgItemDetailsComponent(props) {
 
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
     console.log(props);
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, {});
+    // i am working on this part of code 
+    // const field = useFindUniqueField(props.ProductCategory, {});
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
+    // console.log(Field)
+
+    if(!allItem)
+        {
+          
+              return<h3>Loading...</h3>
         }
-    }, [field])
-    console.log(Field)
+   
     return (
 
         <Box padding={0} width={"100%"}>
@@ -135,7 +143,7 @@ export default function ShoeImgItemDetailsComponent(props) {
                             }
                             {allItem && allItem.map((ele, index) => (
 
-                                <Link key={ele._id} to={`/Electronics/${props.ProductCategory}/${ele._id}`}>
+                                <Link key={ele._id} to={`/Fashion/${props.ProductCategory}/${ele._id}`}>
                                     <Card
                                        
                                         square
@@ -161,7 +169,7 @@ export default function ShoeImgItemDetailsComponent(props) {
                     </Item>
 
 
-                    <Item square elevation={0} sx={{ width: "fit-content" }}>
+                    {/* <Item square elevation={0} sx={{ width: "fit-content" }}>
                         <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
                         {Field && Field.length > 0 &&
                             <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px", }}>
@@ -183,7 +191,8 @@ export default function ShoeImgItemDetailsComponent(props) {
 
                             ))}
                         </Box>
-                    </Item>
+                    </Item> */}
+                    
                 </Grid>
             </Grid>
 

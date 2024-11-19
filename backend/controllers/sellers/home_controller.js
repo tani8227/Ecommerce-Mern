@@ -1,14 +1,16 @@
-import mongoose, { modelNames } from 'mongoose';
+import mongoose from 'mongoose';
 import Mobile from '../../modal/seller/mobiles.js'
 
 
 export async function getHomePageMobileData(req, res) {
+    try {
 
-    const mobiles = await Mobile.find({});
-    if (mobiles) {
+        console.log("getHomePageMobileData function triggered");
 
+        const mobiles = await Mobile.find({});
+        console.log("Mobiles found:", mobiles);
+   
         const allMobiles = [];
-
         mobiles.map((ele) => {
             const flag = allMobiles.some((allele) => allele.companyName === ele.companyName);
             if (!flag) {
@@ -16,30 +18,21 @@ export async function getHomePageMobileData(req, res) {
             }
         });
 
-
-        return res.status(200).json(
-            {
-                message: "got the mobile list",
-                data:
-                {
-
-                    data:allMobiles,
-                    modalName: 'Mobile'
-                    
-                }
-            })
-    } else {
-        return res.status(401).json(
-            {
-                message: "error in finding the mobiles",
-
-            })
+        return res.status(200).json({
+            message: "got the mobile list",
+            data: { data: allMobiles, modalName: 'Mobile' },
+        });
+    } catch (error) {
+        console.error("Error in getHomePageMobileData:", error);
+        return res.status(500).json({
+            message: "error in finding the mobiles",
+            error,
+        });
     }
 }
 
 export async function getHomePageFashionData(req, res) {
     try {
-
 
         const fashion = ['Shirt', 'Tshirt', 'Jeans', 'Shoe', 'TrackPant', 'WindCheater'];
         const Fashion = fashion.map(async (modelName) => {
@@ -62,7 +55,7 @@ export async function getHomePageFashionData(req, res) {
         if (fashionPromise) {
             
             
-            // console.log(fashionPromise);
+            console.log(fashionPromise);
             
             fashionPromise.map((ele) => {
                 

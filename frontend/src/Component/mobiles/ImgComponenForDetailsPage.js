@@ -42,26 +42,30 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ImgComponenForDetailsPage({MobileList}) {
        
-    // console.log(MobileList);
+   
    
     const [mobileData, setMobileData] = useState();
 
     const Dispatch = useDispatch();
 
+    const[loader, setLoader]=useState(false);
+
     useEffect(() => {
         if(MobileList)
             {
                 setMobileData(MobileList)
+                setLoader(true)
                    
             }
 
     }, [MobileList, Dispatch])
-   
-//   console.log(mobileData);
 
    
 
-
+if(!loader)
+    {
+        return <h3>Loading...</h3>
+    }
 
 
 

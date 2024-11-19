@@ -8,7 +8,8 @@ const signup = async (req, res) => {
 
 
     try {
-        //  console.log(req.body);
+
+         console.log(req.body);
         
         const user = await User.findOne({ email: req.body.email });
         if (!user) 
@@ -54,10 +55,7 @@ const signup = async (req, res) => {
 
 const createSession= async(req,res)=>
     {    
-
-       
-        
-           
+     
            const user = await User.findOne({email:req.body.email});
            console.log(user.id)
            if(!user||user.password!=req.body.password)

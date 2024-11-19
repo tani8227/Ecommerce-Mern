@@ -58,6 +58,7 @@ sellerRouter.use('/Shampoo', shampooRouter)
 sellerRouter.use('/OralCare', oralCareRouter)
 sellerRouter.use('/CleaningEssentials', cleaningEssentialsRouter)
 sellerRouter.use('/filter', filterRouter);
+// sellerRouter.use('/field', fieldRouter);
 sellerRouter.use('/product', productRouter);
 
 

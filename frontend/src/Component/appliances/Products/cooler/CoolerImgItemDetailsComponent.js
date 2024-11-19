@@ -42,20 +42,27 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function CoolerImgItemDetailsComponent(props) {
 
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
     console.log(props);
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, 'displaySize');
+    // const field = useFindUniqueField(props.ProductCategory, 'displaySize');
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
-        }
-    }, [field])
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
     console.log(allItem)
+    
+    if(props.product.product.modelName===undefined)
+        {
+              return<h3>Loading...</h3>
+        }
+
+
     return (
         <Box padding={0} width={"100%"}>
 
@@ -154,12 +161,15 @@ export default function CoolerImgItemDetailsComponent(props) {
                         </Box>
                     </Item>
 
-
+{/* 
                     <Item square elevation={0} sx={{ width: "fit-content" }}>
                         <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
-                            <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px", }}>
-                                Capacity:
-                            </Typography>
+                        {Field && Field.length > 0 &&
+                                <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px" }}>
+                                    Capacity:
+                                   
+                                </Typography>
+                            }
                             {Field && Field.length > 0 && Field.map((ele, index) => (
 
 
@@ -176,6 +186,8 @@ export default function CoolerImgItemDetailsComponent(props) {
                             ))}
                         </Box>
                     </Item>
+                                        */}
+                    
                 </Grid>
             </Grid>
 

@@ -6,21 +6,22 @@ import routes from "./routes/index.js";
 import bodyParser from "body-parser";
 import passport from "passport";
 import JWTStrategy from './config/passport-jwt-strategy.js';
-import morgan from "morgan";
+import morgan from 'morgan';
 
 dotenv.config(); 
 const port = process.env.PORT || 8000; // Use PORT from .env or default to 8000
 const app = express();
 
+// app.use(morgan('dev'));
+
 // CORS setup
 app.use(cors({
-    origin: [process.env.REACT_APP_REQUEST_ORIGIN_URL,process.env.REACT_APP_REQUEST_ORIGIN_LOCAL_URL ], // Add both localhost and production frontend domains
+    origin: [process.env.REACT_APP_REQUEST_ORIGIN_URL, process.env.REACT_APP_REQUEST_ORIGIN_LOCAL_URL ], // Add both localhost and production frontend domains
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allowed HTTP methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
     credentials: true // Include credentials if needed
 }));
 
-app.use(morgan('dev'));
 
 // Log incoming requests and preflight requests
 app.use((req, res, next) => {

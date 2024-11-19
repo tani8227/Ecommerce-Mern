@@ -40,28 +40,35 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function JeansImgItemDetailsComponent(props) {
 
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
     console.log(props);
 
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId);
-    const field = useFindUniqueField(props.ProductCategory, {});
+    // const field = useFindUniqueField(props.ProductCategory, {});
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
-        }
-    }, [field])
-    console.log(Field)
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
+    // console.log(Field)
     console.log(allItem)
+
+    if(!allItem)
+        {
+          
+              return<h3>Loading...</h3>
+        }
+
 
     return (
 
         <Box padding={0} width={"100%"}>
 
         <Grid container padding={0} >
-            <Grid item xs={12} sx={{ display: "flex", flexDirection: "column", }} Color={"black"} >
+            <Grid item xs={12} sx={{ display: "flex", flexDirection: "column", }}  >
                 <Item square elevation={0}  >
                     <Typography variant='h6' color={'black'} sx={{ padding: 0, margin: 0 }} >
 
@@ -149,7 +156,7 @@ export default function JeansImgItemDetailsComponent(props) {
                                             component="img"
                                             sx={{ margin: "auto", maxWidth: "150px", maxHeight: "150px", minwidth: "80px", minHeight: "80px", objectFit: "contain" }}
                                             image={`${ele.imgUrl[0].replace("http://", "https://")}`}
-                                            // onClick={()=>{product.handleclickimg(ele._id)}}
+                                           
                                             alt="Color representation"
                                         />
                                     </ThemeProvider>
@@ -161,7 +168,7 @@ export default function JeansImgItemDetailsComponent(props) {
                 </Item>
 
 
-                <Item square elevation={0} sx={{ width: "fit-content" }}>
+                {/* <Item square elevation={0} sx={{ width: "fit-content" }}>
                     <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
                     {Field && Field.length > 0 &&
                             <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px" }}>
@@ -183,7 +190,7 @@ export default function JeansImgItemDetailsComponent(props) {
 
                         ))}
                     </Box>
-                </Item>
+                </Item> */}
             </Grid>
         </Grid>
 

@@ -8,6 +8,7 @@ import { Box, Card, ThemeProvider, createTheme, CardMedia, } from '@mui/material
 import { Link } from 'react-router-dom';
 import useGetItem from '../../../utility/useGetItem.js';
 import useFindUniqueField from '../../../utility/useFindUniqueField.js';
+import { useMemo } from 'react';
 
 
 const theme = createTheme({
@@ -38,37 +39,52 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ShirtImgItemDetailsComponent(props) {
     
-    const [Field, setField] = React.useState();
+    // const [Field, setField] = React.useState();
     console.log(props.product, "jgjjgjjgjgj");
-    const obj=
-    {   
-        ProductCategory:props.ProductCategory,
-        companyName:props.product.product.companyName,
-        comboId:props.product.product.comboId,
-        capacity:props.product.product.capacity,
-        fit:props.product.product.fit,
-        collarType:props.product.product.collarType,
-        fabric:props.product.product.fabric,
-        pattern:props.product.product.pattern,
-        sleeve:props.product.product.sleeve,   
-    }
+    // const obj = useMemo(() => ({
+    //     ProductCategory: props.ProductCategory,
+    //     companyName: props.product.product.companyName,
+    //     comboId: props.product.product.comboId,
+    //     capacity: props.product.product.capacity,
+    //     fit: props.product.product.fit,
+    //     collarType: props.product.product.collarType,
+    //     fabric: props.product.product.fabric,
+    //     pattern: props.product.product.pattern,
+    //     sleeve: props.product.product.sleeve,
+    // }), [
+    //     props.ProductCategory,
+    //     props.product.product.companyName,
+    //     props.product.product.comboId,
+    //     props.product.product.capacity,
+    //     props.product.product.fit,
+    //     props.product.product.collarType,
+    //     props.product.product.fabric,
+    //     props.product.product.pattern,
+    //     props.product.product.sleeve
+    // ]);
+    
     const { data: allItem } = useGetItem(props.ProductCategory, props.product.product.comboId );
-    const field = useFindUniqueField(props.ProductCategory, obj);
+    // const field = useFindUniqueField(props.ProductCategory, obj);
     
 
     // console.log(props, "jgjjgjjgjgj");
     console.log(props, "jgjjgjjgjgj");
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
 
-        if (field) {
-            setField(field.data);
-        }
-    }, [field])
+    //     if (field) {
+    //         setField(field.data);
+    //     }
+    // }, [field])
     
     console.log(allItem)
 
+    if(!allItem)
+        {
+          
+              return<h3>Loading...</h3>
+        }
 
     return (
         <Box padding={0} width={"100%"}>
@@ -175,7 +191,7 @@ export default function ShirtImgItemDetailsComponent(props) {
                 </Item>
 
 
-                <Item square elevation={0} sx={{ width: "fit-content" }}>
+                {/* <Item square elevation={0} sx={{ width: "fit-content" }}>
                     <Box sx={{ display: "flex", justifyContent: "flex-start", alignItems: "center", flexWrap: 'wrap', gap: 2, }}>
                     {Field && Field.length > 0&&
                             <Typography variant='body2' sx={{ color: "grey", fontWeight: 600, fontSize: "15px" }}>
@@ -198,7 +214,7 @@ export default function ShirtImgItemDetailsComponent(props) {
 ))} 
 
                     </Box>
-                </Item>
+                </Item> */}
             </Grid>
         </Grid>
 

@@ -13,33 +13,6 @@ import { Actions } from '../../../reducers/AuthReducer.js';
 import { Typography } from '@mui/material';
 import useToGetAllItemsOfAnyModal from '../../utility/useToGetAllItemsOfAnyModal.js';
 
-// import { createTheme } from '@mui/material/styles';
-
-
-// const theme = createTheme({
-//     components: {
-//         MuiCardMedia: {
-//             styleOverrides: {
-//                 root: {
-//                     width: "100%",
-
-
-//                 },
-//             },
-//         },
-//     },
-// });
-
-
-
-// const Item = styled(Paper)(({ theme }) => ({
-//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-//     ...theme.typography.body2,
-//     padding: theme.spacing(1),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary,
-// }));
-
 export default function ProductList(props) {
      const [fridgeList, setFridgeList]= useState();
         
@@ -84,6 +57,11 @@ export default function ProductList(props) {
 
 
     console.log(fridgeList)
+    
+    if(fridgeList&&fridgeList.length===0)
+        {
+            return <h3 style={{textAlign:'center'}}>No Data To Show!!!</h3>
+        }
 
 
     return (
