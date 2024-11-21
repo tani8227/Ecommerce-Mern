@@ -38,7 +38,7 @@ export const SellerSignUpComponent = () => {
         e.preventDefault();
         try {
 
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/create`,
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/create`,
                 {
                     method: "POST",
                     headers:
@@ -61,11 +61,11 @@ export const SellerSignUpComponent = () => {
                         if(data.data&&data.data.user&&data.data.user.usertype==="seller")
                             {
                                 console.log(data.data.user)
-                                navigate('/seller/dashboard')
+                                navigate('/seller/signin')
                             }else
                             {
                                 
-                                navigate('/');
+                                navigate('/buyer/signin');
                             }
                             toast.success('Sign up successfully',
                                 {
@@ -182,7 +182,7 @@ export const SellerSignUpComponent = () => {
                                 sx={{ margin: 3, backgroundColor: '#fb641b' }}
                                 padding={2}
                             >
-                                Login
+                                SIGN UP
                             </Button>
                         </FormGroup>
                     </FormControl>

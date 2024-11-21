@@ -9,7 +9,7 @@ export default function useToPlaceOrder() {
 
           console.log(obj);
 
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/order/place`,
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/order/place`,
             {
                 method: 'POST',
                 headers:

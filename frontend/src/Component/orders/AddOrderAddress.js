@@ -23,7 +23,7 @@ const HiddenTextField = styled(TextField)({
     display: 'none',
 });
 
-export default function AddressComponent(props) {
+export default function AddOrderAddress(props) {
 
 
     const user = JSON.parse(localStorage.getItem('user')) || "";
@@ -74,7 +74,7 @@ export default function AddressComponent(props) {
 
         }
 
-        props.handleToggle();
+        window.location.reload();
 
 
     }
@@ -93,18 +93,13 @@ export default function AddressComponent(props) {
 
 
 
+
+
     return (
         <Box>
 
 
-            <Grid size={12} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Item square elevation={0} onClick={props.handleToggle}>
-
-
-                    <CancelIcon />
-
-                </Item>
-            </Grid>
+           
 
             <Grid size={12}>
 

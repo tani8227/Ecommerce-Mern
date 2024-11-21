@@ -97,6 +97,8 @@ export default function MyOrderDetailsComponent() {
     console.log(allOrder)
 
 
+
+
     return (
         <Box sx={{ flexGrow: 1, padding: 2 }}>
             <Grid container spacing={2} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', }}>
@@ -151,8 +153,19 @@ export default function MyOrderDetailsComponent() {
                 <Grid item xs={12} sm={8} >
 
                     <Grid container sx={{ xs: { display: 'flex', flexWrap: "wrap" }, flexDirection: 'column', justifyContent: "space-evenly", gap: 2, borderBottom: '2px solid lightgrey', backgroundColor: "white", }} >
-
-
+                       {allOrder&&allOrder.length===0&&
+                         <Item>
+                       
+ 
+                             <Typography  sx={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+ 
+                                 NO ORDER TO Show !!!
+                             </Typography>
+ 
+                       
+                     </Item>
+                       }
+                      
                         {allOrder && allOrder.map((ele, index) =>
                         (
 
@@ -162,8 +175,7 @@ export default function MyOrderDetailsComponent() {
 
                                 <Item square elevation={0} sx={{ position: "relative", justifyContent: { xs: "center" }, alignItems: { xs: "center" }, width: "75px", }} >
 
-                                    <Link
-                                        to={`/buyer/trackOrder/?productCategory=${productCategory === null ? `${ele.modalName}` : productCategory}&orderItemId=${ele._id}&userId=${userId === null ? `${localStorage.getItem('token')}` : userId}`} style={{ textDecoration: "none" }}>
+                                   
                                         <Card square elevation={0} sx={{ maxWidth: { xs: "75px" } }}>
                                             <ThemeProvider theme={theme}>
                                                 <CardMedia className='xs-phone-width'
@@ -174,7 +186,7 @@ export default function MyOrderDetailsComponent() {
                                                 />
                                             </ThemeProvider>
                                         </Card>
-                                    </Link>
+                                    
                                 </Item>
                                 <Item square elevation={0} sx={{ display: "flex", flexDirection: { xs: "row" }, width: "100%", justifyContent: "space-between", alignItems: "center", gap: 2, }} >
 

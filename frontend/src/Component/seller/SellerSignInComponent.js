@@ -46,7 +46,7 @@ export const SellerSignInComponent = () => {
         e.preventDefault();
         try {
 
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/create-session`,
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/create-session`,
                 {
                     method: "POST",
                     headers:

@@ -10,7 +10,7 @@ export default function useToGetAllOrderForSeller(obj) {
         console.log("********------")
         async function handleItem() {
 
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/product/getorderedProducts?obj=${newobj}`,
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/product/getorderedProducts?obj=${newobj}`,
                 {
                     method: "GET",
                     headers:

@@ -7,7 +7,7 @@ export default function useToGetHomeFashionData() {
     const getAllFashionItems = async () => {
         try {
             console.log("Fetching data from API...");
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/home/getAllFashion`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/home/getAllFashion`, {
                 method: "GET",
                 headers: {
                     'Content-Type': "application/json",  

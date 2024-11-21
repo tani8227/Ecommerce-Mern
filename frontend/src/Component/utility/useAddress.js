@@ -8,7 +8,7 @@ export default function useAddress(userId, toggle)
         {
             async function getaddress()
             {
-                const response= await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/Address/get?userId=${userId}`,
+                const response= await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/Address/get?userId=${userId}`,
                     {
                         method:'Get',
                         headers:
@@ -32,7 +32,7 @@ export default function useAddress(userId, toggle)
 
             }
             getaddress();
-        }, [userId,data, toggle])
+        }, [userId, toggle])
 
         console.log(data);
 

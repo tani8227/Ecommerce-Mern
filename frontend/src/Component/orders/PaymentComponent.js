@@ -69,6 +69,8 @@ export default function PaymentComponent(props) {
 
     });
 
+    console.log(localStorage.getItem('orderAddress'));
+
     useEffect(() => {
         if (props.cartItem !== undefined) {
             setOrder(
@@ -80,7 +82,7 @@ export default function PaymentComponent(props) {
                     modalName: `${props.ProductCategory}`,
                     orderItemImg: `${props.defaultImg}`,
                     paymentMode: `${selectedPayment}`,
-                    deliveryAddress: props.userAddress && props.userAddress.length > 0 ? props.userAddress[0].address : '',
+                    deliveryAddress: `${localStorage.getItem('orderAddress')}`,
                     orderItemQuantity: props.cartItem && props.cartItem.quantity ? props.cartItem.quantity : '',
                     price: props.orderPreviewData && props.orderPreviewData.price ? props.orderPreviewData.price : '',
                     upiId: `${upi === '' ? 'NA' : upi}`,

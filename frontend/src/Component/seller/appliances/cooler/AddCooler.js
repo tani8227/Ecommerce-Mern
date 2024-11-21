@@ -104,7 +104,7 @@ export default function AddCooler(props) {
 
             if (defaultVal) {
                 console.log("uuuuuuuuuu")
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Cooler/update/?prodId=${defaultVal._id}&hasImagesChange=${hasImagesChange}`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Cooler/update/?prodId=${defaultVal._id}&hasImagesChange=${hasImagesChange}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export default function AddCooler(props) {
             }
             if (defaultVal === undefined) {
 
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Cooler/add`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Cooler/add`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

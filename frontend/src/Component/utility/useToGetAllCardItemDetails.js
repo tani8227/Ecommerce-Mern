@@ -16,7 +16,7 @@ export default function useToGetAllCardItemDetails(AllItems) {
 
                      AllItems.map(async (item) => {
                         
-                        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/order/getOrderItemDetails/?modalName=${item.modalName}&orderItemId=${item.orderItemId}&orderId=${item._id}`,
+                        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/order/getOrderItemDetails/?modalName=${item.modalName}&orderItemId=${item.orderItemId}&orderId=${item._id}`,
                     {
                         method: "GET",
                         headers:

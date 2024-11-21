@@ -13,7 +13,7 @@ export default function useToGetAllItemsOfAnyModal( modalName, price) {
 
               
 
-                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/filter/getAll/?modalName=${modalName}&minRange=${price[0]}&maxRange=${price[1]}`,
+                    const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/filter/getAll/?modalName=${modalName}&minRange=${price[0]}&maxRange=${price[1]}`,
                         {
                             method: "GET",
                             headers:

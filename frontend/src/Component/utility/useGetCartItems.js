@@ -6,7 +6,7 @@ export const useGetCartItems = (refreshCart) => {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/get`,
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/get`,
                 {
                     method: "GET",
                     headers:
@@ -16,6 +16,18 @@ export const useGetCartItems = (refreshCart) => {
                     },
                 });
 
+
+                if (!response.ok) {
+                    // Check for specific status codes
+                    if (response.status === 401) {
+                        console.error("Unauthorized access");
+                        window.location.href = '/buyer/signin'; // Redirect to signin
+                    } else {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || `HTTP Error: ${response.status}`);
+                    }
+                }
+
                 if (response.ok) {
                     const data = await response.json();
                     
@@ -23,16 +35,17 @@ export const useGetCartItems = (refreshCart) => {
                         {
 
                             setCartData(data.data);
-                        }
-                  
-                  
-                } else {
-                    const data = await response.json();
-                    setCartData(data.data);
-                    console.log("Failed to fetch cart data");
-                }
+                        }           
+                } 
             } catch (error) {
-                console.error("Error fetching cart data:", error);
+                
+               
+
+                if (error.statusCode === 401) {
+                    console.error("Unauthorized access - please check your credentials or token.",error.statusCode);
+                } else {
+                    console.error("Error fetching cart data:", error.message || error.statusCode);
+                }
             }
         };
 

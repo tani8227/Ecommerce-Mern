@@ -4,12 +4,12 @@ import { toast } from "react-toastify";
 export default function useAddToCard() {
 
     const navigate = useNavigate();
-    async function handleAddToCart(mainCategory,schemaCollectionName, prodId, type) {
+    async function handleAddToCart(mainCategory,schemaCollectionName, prodId, type)
+    {
+
         console.log(schemaCollectionName, prodId)
-
-
-
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/user/cart/add-to-cart/?mainCategory=${mainCategory}&prodId=${prodId}&schemaCollectionName=${schemaCollectionName}`,
+   
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/user/cart/add-to-cart/?mainCategory=${mainCategory}&prodId=${prodId}&schemaCollectionName=${schemaCollectionName}`,
             {
                 method: 'POST',
                 headers:
@@ -45,9 +45,9 @@ export default function useAddToCard() {
         else {
             toast.error('error in adding the Product in cart.', {
                 position: "top-right", 
-                autoClose: 3000,
+                autoClose: 2000,
             });
-            console.log("jjjjjjjjjopop[][][][[[[", response);
+           navigate('/buyer/signin')
         }
 
     }

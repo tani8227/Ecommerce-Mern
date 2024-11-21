@@ -9,7 +9,7 @@ export default function useToGetAllOrderByModalName(modalName, flg) {
 
         async function getAllitems() {
 
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/product/model-name/${modalName}`,
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/product/model-name/${modalName}`,
                 {
                     method: "GET",
                     headers:

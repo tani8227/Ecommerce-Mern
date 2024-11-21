@@ -10,7 +10,7 @@ export default function useGetAllItems(itemName) {
          
             async function getAllitems()
             {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/${itemName}/get`, 
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/${itemName}/get`, 
                     {
                         method:"GET",
                         headers:

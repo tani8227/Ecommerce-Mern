@@ -183,7 +183,7 @@ export const SignUpComponent = () => {
                                 sx={{ margin: 3, backgroundColor: '#fb641b' }}
                                 padding={2}
                             >
-                                Login
+                                Sign up
                             </Button>
                         </FormGroup>
                     </FormControl>

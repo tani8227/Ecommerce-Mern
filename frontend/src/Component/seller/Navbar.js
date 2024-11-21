@@ -213,7 +213,7 @@ export default function SellersNavbar() {
           <Grid container sx={{ flexGrow: 1, display: "flex", justifyContent: { xs: 'row' }, alignItems: "center" }}>
             <Grid item xs={0} sm={2} >
               <Item square elevation={0} sx={{ display: { xs: 'none', sm: "block", backgroundColor: "transparent" } }}>
-              <Link to={'/seller/dashboard'}>
+              <Link to={'/'}>
 
                 <img src={Applogo} style={{ width: '4rem' }} alt="App Logo" />
 
@@ -261,7 +261,7 @@ export default function SellersNavbar() {
                   color="inherit"
                 >
                     
-                  <NavLink  to={'/Buyer/signin'}  style={{ textDecoration: "none", display: "flex", flexDirection: 'row', justifyContent: "center", alignItems: "center", color: "white" }}>
+                  <NavLink  to={'/buyer/signin'}  style={{ textDecoration: "none", display: "flex", flexDirection: 'row', justifyContent: "center", alignItems: "center", color: "white" }}>
                     <LocalMallIcon sx={{ fontSize: 25, mr: '3px' }} />
                     <Typography variant='body2' sx={{ fontSize: '16px', display: { xs: 'none', sm: "none", md: "block" } }} > 
                       Register as a Buyer

@@ -94,7 +94,7 @@ export default function AddCamera(props) {
 
             if (defaultVal) {
                 console.log("uuuuuuuuuu")
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Camera/update/?prodId=${defaultVal._id}&hasImagesChange=${hasImagesChange}`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Camera/update/?prodId=${defaultVal._id}&hasImagesChange=${hasImagesChange}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
@@ -111,7 +111,7 @@ export default function AddCamera(props) {
             }
             if (defaultVal===undefined) {
 
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Camera/add`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/Camera/add`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

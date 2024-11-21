@@ -56,7 +56,7 @@ export default function AddWindCheater() {
             console.log(product);
 
             
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/WindCheater/add`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/WindCheater/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

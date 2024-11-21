@@ -11,7 +11,7 @@ export default function useGetOneItem( categoryName, itemId) {
                 if(categoryName!==undefined&&itemId!==undefined)
                     {
 
-                        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_URL||process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL}/api/v1/seller/${categoryName}/${itemId}`,
+                        const response = await fetch(`${process.env.REACT_APP_BACKEND_APP_API_LOCAL_URL||process.env.REACT_APP_BACKEND_APP_API_URL}/api/v1/seller/${categoryName}/${itemId}`,
                             {
                         method:"GET",
                         headers:
