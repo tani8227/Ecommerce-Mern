@@ -267,7 +267,7 @@ console.log(props.ProductCategory)
                             <Link to={`/${props.ProductCategory}/${orderPreviewData._id}`} style={{ textDecoration: "none" }}>
                                 <Item square elevation={0}  >
                                     <Typography variant='body2' color={'black'} sx={{ padding: 0, margin: 0, textAlign: "left", fontSize: "15px" }} >
-                                        {`${orderPreviewData.companyName} ${orderPreviewData.modelName} (${orderPreviewData.color} ${orderPreviewData.internalStorage})`}
+                                        {`${orderPreviewData.companyName!==undefined?orderPreviewData.companyName:''} ${orderPreviewData.modelName!==undefined?orderPreviewData.modelName:''} (${orderPreviewData.color!==undefined?orderPreviewData.colo:''} ${orderPreviewData.internalStorage!==undefined?orderPreviewData.internalStorage:''})`}
                                     </Typography>
 
                                     <Typography variant='body2' sx={{ color: "black", fontSize: "21px" }}>
